@@ -9,4 +9,8 @@
 
 - service-swagger
 
+# plugins
+
+- plugin-maven
+
 > - author is BNTang 🐤

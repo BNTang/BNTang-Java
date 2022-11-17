@@ -14,6 +14,7 @@
     <modules>
         <module>common</module>
         <module>service</module>
+        <module>plugins</module>
     </modules>
     <!--当前工程-->
 

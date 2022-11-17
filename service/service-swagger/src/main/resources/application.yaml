@@ -1,8 +1,8 @@
 #自定义 swagger信息
 swagger:
   base-package: top.it6666
-  description: BNTang相关接口API文档
-  title: BNTangAPI
+  description: Service-Swagger-API API document
+  title: Service-Swagger-API
   version: 1.0
 
 # mvc

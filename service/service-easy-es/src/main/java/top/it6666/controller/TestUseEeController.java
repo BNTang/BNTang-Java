@@ -2,6 +2,7 @@ package top.it6666.controller;
 
 import cn.easyes.core.conditions.LambdaEsQueryWrapper;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,7 @@ import java.util.List;
 public class TestUseEeController {
     private final DocumentMapper documentMapper;
 
+    @ApiOperation("插入数据")
     @GetMapping("/insert")
     public Integer insert() {
         // 初始化-> 新增数据
@@ -26,6 +28,7 @@ public class TestUseEeController {
         return this.documentMapper.insert(document);
     }
 
+    @ApiOperation("查询数据")
     @GetMapping("/search")
     public List<Document> search() {
         // 查询出所有标题为老汉的文档列表
@@ -33,4 +36,6 @@ public class TestUseEeController {
         wrapper.eq(Document::getTitle, "老汉");
         return this.documentMapper.selectList(wrapper);
     }
+
+
 }

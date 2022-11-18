@@ -34,7 +34,7 @@ easy-es:
     #索引处理模式,smoothly:平滑模式,默认开启此模式, not_smoothly:非平滑模式, manual:手动模式
     #process_index_mode: smoothly
     # 开启控制台打印通过本框架生成的DSL语句,默认为开启,测试稳定后的生产环境建议关闭,以提升少量性能
-    #print-dsl: true
+    print-dsl: false
     # 当前项目是否分布式项目,默认为true,在非手动托管索引模式下,若为分布式项目则会获取分布式锁,非分布式项目只需synchronized锁.
     #distributed: false
     # 异步处理索引是否阻塞主线程 默认阻塞 数据量过大时调整为非阻塞异步进行 项目启动更快
@@ -59,6 +59,12 @@ easy-es:
       #refresh-policy: immediate
       # 是否全局开启must查询类型转换为filter查询类型 默认为false不转换
       #enable-must2-filter: false
+
+logging:
+  level:
+    # 开启trace级别日志,在开发时可以开启此配置,则控制台可以打印es全部请求信息及DSL语句,为了避免重复,
+    # 开启此项配置后,可以将EE的print-dsl设置为false.
+    tracer: trace
 
 server:
   port: 50001

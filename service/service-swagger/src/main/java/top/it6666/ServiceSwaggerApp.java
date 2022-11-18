@@ -6,8 +6,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-//@EnableSwagger2Doc
-//@EnableKnife4j
+@EnableSwagger2Doc
+@EnableKnife4j
 public class ServiceSwaggerApp {
     public static void main(String[] args) {
         SpringApplication.run(ServiceSwaggerApp.class, args);

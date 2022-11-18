@@ -13,5 +13,6 @@
     <modules>
         <module>service-swagger</module>
         <module>service-api-doc</module>
+        <module>service-easy-es</module>
     </modules>
 </project>

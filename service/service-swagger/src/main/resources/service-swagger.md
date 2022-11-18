@@ -8,4 +8,28 @@
 
 - 相对复杂
 - 跨语言，JavaScript、Go、Java、C++、Rust 等大部分开发语言
-- 跨平台，
+- 跨平台，Linux、Windows、MacOS 等都支持
+- 支持语言广泛，即使是不支持，也很方便扩展
+- 支持多个不同语言的多个项目生成一份文档
+- ... ...
+
+> 官方地址：https://swagger.io/
+
+# Swagger 使用
+
+## Java
+
+安装相关依赖：
+
+
+
+## Node
+
+安装相关依赖:
+
+- swagger-jsdoc: 用于将注释转成 swagger 需要的 json
+- koa2-swagger-ui：用于生成 swagger-ui
+
+```shell
+npm install koa2-swagger-ui swagger-jsdoc --save
+```

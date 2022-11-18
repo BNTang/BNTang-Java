@@ -98,3 +98,5 @@ public class Document {
 ### and 和 or 的使用
 
 需要区别于 MySQL 和 MP, 因为 ES 的查询参数是树形数据结构, 和 MySQL 平铺的不一样, 具体可参考条件构造器 `-and&or` 章节, 有详细介绍.
+
+> 官方地址：

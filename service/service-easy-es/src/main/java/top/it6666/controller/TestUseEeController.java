@@ -36,6 +36,4 @@ public class TestUseEeController {
         wrapper.eq(Document::getTitle, "老汉");
         return this.documentMapper.selectList(wrapper);
     }
-
-
 }

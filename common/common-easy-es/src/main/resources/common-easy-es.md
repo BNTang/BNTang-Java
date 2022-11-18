@@ -41,7 +41,7 @@ Easy-Es（简称 `EE`）是一款基于 ElasticSearch(简称Es) 官方提供的 
 
 在正式使用 EE 之前, 不妨花三五分钟学习一下, 可以帮各位在使用中避免踩坑, 从而节省大量时间. 遇到问题尽量先从 `使用角度`, `是否规范`, `版本是否兼容`, 去下手, 我们已提供的 API 都是有测试用例覆盖, 单测覆盖率高达 95%+, 并有社区大量用户以及生产环境实测佐证无缺陷的, 不要做键盘侠, 喷子, 上来就觉得框架遍地都是 Bug, 各种喷, 实际上是自己菜的抠脚... 要么不看文档瞎 j* 用, 要么是 ES 基础太差踩了 ES 的坑. 这类用户其实对自己技术成长一点帮助都没有, 正确姿势应该是按文档规范使用, 并且遇到问题先 debug, 看看源码, 问问度娘等多方途径.
 
-ES 版本及 SpringBoot 版本:
+### ES 版本及 SpringBoot 版本
 
 由于底层用了 ES 官方的 RestHighLevelClient, 所以对 ES 版本有要求, 底层用的 RestHighLevelClient 版本为 `7.14`, 所以对 `7.14` 的 es 兼容性最好, 目前实测下来 ES 版本为 7.x 都可以兼容.
 
@@ -49,7 +49,7 @@ ES 版本及 SpringBoot 版本:
 
 抱怨我们框架有缺陷, 实际上是依赖被覆盖引发的兼容性问题, 如果您不想浪费太多时间在 API 兼容问题上, 我们强烈建议您在使用前务必检查 ES 相关依赖的版本号是否为 7.x
 
-ES 索引的 keyword 类型和 text 类型以及 termQuery, match, match_phrase 区别：
+### ES 索引的 keyword 类型和 text 类型以及 termQuery, match, match_phrase 区别：
 
 ![6b9f24cf-7eb9-43ac-9b65-86c3b759cd69](https://img2022.cnblogs.com/blog/2105804/202211/2105804-20221118150149314-542167449.png)
 
@@ -69,3 +69,32 @@ ES 中的 keyword 类型, 和 MySQL 中的字段基本上差不多, 当我们需
 
 ![87335e55-1fe3-44ed-920b-61354383e85a](https://img2022.cnblogs.com/blog/2105804/202211/2105804-20221118151438226-962558908.png)
 
+### 字段 id
+
+由于框架很多功能都是借助 id 实现的, 比如 selectById, update, deleteById ..., 而且 ES 中也必须有一列作为数据 id, 因此我们强制要求用户封装的实体类中包含字段 id 列, 否则框架不少功能无法正常使用.
+
+```java
+public class Document {
+    /**
+     * es 中的唯一 id, 如果你想自定义 es 中的 id 为你提供的 id, 比如 MySQL 中的 id, 请将注解中的 type 指定为 customize 或直接在全局配置文件中指定, 如此 id 便支持任意数据类型)
+     */
+    @TableId(type = IdType.CUSTOMIZE)
+    private String id;
+}
+```
+
+如果不添加 `@TableId` 注解或者添加了注解但未指定 type, 则 id 默认为 es 自动生成的 id.
+
+在调用 insert 方法时, 如果该 id 数据在 es 中不存在, 则新增该数据, 如果已有该 id 数据, 则即便你调用的是 insert 方法, 实际上的效果也是更新该 id 对应的数据, 这点需要区别于 MP 和 MySQL.
+
+### 项目中同时使用 Mybatis-Plus 和 Easy-Es
+
+在此场景下, 您需要将 MP 的 mapper 和 EE 的 mapper 分别放在不同的目录下, 并在配置扫描路径时各自配各自的扫描路径, 如此便可共存使用了, 否则两者在 SpringBoot 启动时都去扫描同一路径, 并尝试注册为自己的 bean, 由于底层实现依赖的类完全不一样, 所以会导致其中之一注册失败, 整个项目无法正常启动. 可参考下图:
+
+![30f08bc4-cb07-4ac6-8a52-59e062105238](https://img2022.cnblogs.com/blog/2105804/202211/2105804-20221118152401136-1411463564.png)
+
+![1b5806d4-6c5b-48e6-a025-7746f89f0f6a](https://img2022.cnblogs.com/blog/2105804/202211/2105804-20221118152459895-1555608492.png)
+
+### and 和 or 的使用
+
+需要区别于 MySQL 和 MP, 因为 ES 的查询参数是树形数据结构, 和 MySQL 平铺的不一样, 具体可参考条件构造器 `-and&or` 章节, 有详细介绍.

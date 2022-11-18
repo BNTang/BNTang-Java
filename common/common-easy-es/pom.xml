@@ -10,4 +10,8 @@
     </parent>
 
     <artifactId>common-easy-es</artifactId>
+
+    <dependencies>
+
+    </dependencies>
 </project>

@@ -50,6 +50,7 @@ easy-es:
       # 索引前缀,可用于区分环境  默认为空 用法和MP一样
       table-prefix: it6666_
       # id生成策略 customize为自定义,id值由用户生成,比如取MySQL中的数据id,如缺省此项配置,则id默认策略为es自动生成
+      # https://www.easy-es.cn/pages/9a3e4c/
       #id-type: customize
       # 字段更新策略 默认为not_null
       #field-strategy: not_empty

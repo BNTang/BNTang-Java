@@ -4,6 +4,8 @@ easy-es:
   # es的连接地址,必须含端口 若为集群,则可以用逗号隔开 例如:127.0.0.1:9200,127.0.0.2:9200
   address: 127.0.0.1:9200
   # 若无 则可省略此行配置
-  username: elastic
+  # username: elastic
   # 若无 则可省略此行配置
-  password: WG7WVmuNMtM4GwNYkyWH
+  # password: WG7WVmuNMtM4GwNYkyWH
+server:
+  port: 50001

@@ -44,11 +44,11 @@ easy-es:
     # 分布式环境下,平滑模式,当前客户端激活最新索引最大重试次数 若数据量过大,重建索引数据迁移时间超过60*(180/60)=180分钟时,可调大此参数值 此参数值决定多久重试一次 单位:秒
     #activeReleaseIndexFixedDelay: 180
 
-    db-config:
+    #db-config:
       # 是否开启下划线转驼峰 默认为false
       # map-underscore-to-camel-case: false
       # 索引前缀,可用于区分环境  默认为空 用法和MP一样
-      table-prefix: it6666_
+      #table-prefix: it6666_
       # id生成策略 customize为自定义,id值由用户生成,比如取MySQL中的数据id,如缺省此项配置,则id默认策略为es自动生成
       # https://www.easy-es.cn/pages/9a3e4c/
       #id-type: customize

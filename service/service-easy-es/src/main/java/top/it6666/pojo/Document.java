@@ -4,7 +4,7 @@ import cn.easyes.annotation.IndexName;
 import lombok.Data;
 
 @Data
-@IndexName(keepGlobalPrefix = true)
+@IndexName
 public class Document {
     /**
      * es中的唯一id

@@ -1,5 +1,7 @@
 package top.it6666.pojo;
 
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -13,7 +15,7 @@ import javax.annotation.PreDestroy;
  * @description Bean 生命周期与扩展点
  **/
 @Component
-public class BNTangBean {
+public class BNTangBean implements InitializingBean, DisposableBean {
     /**
      * 名字
      */
@@ -28,12 +30,22 @@ public class BNTangBean {
     }
 
     @PostConstruct
-    public void init() {
-        System.out.println("2. call init method attribute config init method！");
+    public void myInit() {
+        System.out.println("2. call myInit method attribute config init method！");
     }
 
     @PreDestroy
+    public void myDestroy() {
+        System.out.println("3. call myDestroy method attribute config init method！");
+    }
+
+    @Override
+    public void afterPropertiesSet() {
+        System.out.println("4. call InitializingBean interface afterPropertiesSet");
+    }
+
+    @Override
     public void destroy() {
-        System.out.println("3. call destroy method attribute config init method！");
+        System.out.println("5. call DisposableBean interface destroy");
     }
 }

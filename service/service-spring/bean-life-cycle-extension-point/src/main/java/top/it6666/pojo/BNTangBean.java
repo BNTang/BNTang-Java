@@ -1,5 +1,6 @@
 package top.it6666.pojo;
 
+import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
@@ -15,7 +16,7 @@ import javax.annotation.PreDestroy;
  * @description Bean 生命周期与扩展点
  **/
 @Component
-public class BNTangBean implements InitializingBean, DisposableBean {
+public class BNTangBean implements InitializingBean, DisposableBean, BeanNameAware {
     /**
      * 名字
      */
@@ -24,6 +25,10 @@ public class BNTangBean implements InitializingBean, DisposableBean {
      * 年龄
      */
     private int age;
+    /**
+     * bean名字
+     */
+    private String beanName;
 
     public BNTangBean() {
         System.out.println("1. BNTangBean no parameter constructor start！");
@@ -47,5 +52,20 @@ public class BNTangBean implements InitializingBean, DisposableBean {
     @Override
     public void destroy() {
         System.out.println("5. call DisposableBean interface destroy");
+    }
+
+    @Override
+    public void setBeanName(String beanName) {
+        this.beanName = beanName;
+        System.out.println("6. call BeanNameAware setBeanName " + beanName);
+    }
+
+    @Override
+    public String toString() {
+        return "BNTangBean{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", beanName='" + beanName + '\'' +
+                '}';
     }
 }

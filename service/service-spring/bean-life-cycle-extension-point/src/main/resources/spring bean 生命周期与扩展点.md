@@ -11,3 +11,7 @@
 
 - InitializingBean：初始化之后
 - DisposableBean：销毁之后
+
+# BeanNameWare 接口
+
+- BeanNameAware：setBeanName 的时机 call

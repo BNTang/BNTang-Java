@@ -15,3 +15,8 @@
 # BeanNameWare 接口
 
 - BeanNameAware：setBeanName 的时机 call
+
+# BeanFactoryAware 与 ApplicationContextAware
+
+- BeanFactoryAware: setBeanFactory
+- ApplicationContextAware: setApplicationContext

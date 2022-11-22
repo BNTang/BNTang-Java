@@ -23,4 +23,7 @@
 
 # Bean 扩展点
 
-在所有 Bean 初始之前跟之后执行
+在所有 Bean 初始之前跟之后执行，也就是 Bean 的前置和后置处理器, implements BeanPostProcessor interface Override postProcessBeforeInitialization postProcessAfterInitialization method
+
+- postProcessBeforeInitialization：前置处理器
+- postProcessAfterInitialization：后置处理器

@@ -1,8 +1,9 @@
 package top.it6666.pojo;
 
-import org.springframework.beans.factory.BeanNameAware;
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.*;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -16,7 +17,8 @@ import javax.annotation.PreDestroy;
  * @description Bean 生命周期与扩展点
  **/
 @Component
-public class BNTangBean implements InitializingBean, DisposableBean, BeanNameAware {
+public class BNTangBean implements InitializingBean, DisposableBean, BeanNameAware, BeanFactoryAware,
+        ApplicationContextAware {
     /**
      * 名字
      */
@@ -67,5 +69,35 @@ public class BNTangBean implements InitializingBean, DisposableBean, BeanNameAwa
                 ", age=" + age +
                 ", beanName='" + beanName + '\'' +
                 '}';
+    }
+
+    @Override
+    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
+        System.out.println("7. call BeanFactoryAware interface setBeanFactory");
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getBeanName() {
+        return beanName;
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        System.out.println("8. call ApplicationContextAware interface of setApplicationContext");
     }
 }

@@ -20,3 +20,7 @@
 
 - BeanFactoryAware: setBeanFactory
 - ApplicationContextAware: setApplicationContext
+
+# Bean 扩展点
+
+在所有 Bean 初始之前跟之后执行

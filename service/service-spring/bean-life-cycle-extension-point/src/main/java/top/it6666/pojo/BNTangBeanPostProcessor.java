@@ -15,13 +15,17 @@ import org.springframework.stereotype.Component;
 public class BNTangBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("9. call BeanPostProcessor of BeforeInitialization!");
+        if (beanName.equals("BNTangBean")) {
+            System.out.println("9. call BeanPostProcessor of BeforeInitialization!");
+        }
         return bean;
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("10. call BeanPostProcessor of AfterInitialization!");
+        if (beanName.equals("BNTangBean")) {
+            System.out.println("10. call BeanPostProcessor of AfterInitialization!");
+        }
         return bean;
     }
 }

@@ -5,8 +5,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import top.it6666.mapper.DocumentMapper;
 import top.it6666.pojo.Document;
 
@@ -35,5 +34,25 @@ public class TestUseEeController {
         LambdaEsQueryWrapper<Document> wrapper = new LambdaEsQueryWrapper<>();
         wrapper.eq(Document::getTitle, "老汉");
         return this.documentMapper.selectList(wrapper);
+    }
+
+    /**
+     * 根据Id删除数据
+     */
+    @DeleteMapping("/deleteById/{id}")
+    public Integer deleteById(@PathVariable String id) {
+        return this.documentMapper.deleteById(id);
+    }
+
+    /**
+     * 更新根据Id
+     */
+    @PutMapping("/update")
+    public Integer update() {
+        Document document = new Document();
+        document.setId("D33Hs4QBNyDzYy-TJq35");
+        document.setTitle("it6666");
+        document.setContent("BNTang");
+        return this.documentMapper.updateById(document);
     }
 }

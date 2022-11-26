@@ -32,7 +32,7 @@
 
 implements BeanFactoryPostProcessor interfaces Override postProcessBeanFactory method
 
-- postProcessBeanFactory
+- postProcessBeanFactory：BeanFactory call after call this method（调用时机：当 BeanFactory 创建完之后自动调用此方法）
 
 # InstantiationAwareBeanPostProcessor
 

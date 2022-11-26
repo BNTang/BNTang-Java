@@ -35,3 +35,31 @@ implements BeanFactoryPostProcessor interfaces Override postProcessBeanFactory m
 - postProcessBeanFactory
 
 # InstantiationAwareBeanPostProcessor
+
+> 对象实例化的时候进行 call
+
+- postProcessBeforeInstantiation: 实例化之前 call
+- postProcessAfterInstantiation: 实例化之后 call
+- postProcessProperties：当属性处理完之后会传入进来
+
+> 最终结果
+
+```text
+1. call BNTangFactoryBeanPostProcessor constructor
+2. call BeanFactoryPostProcessor of postProcessBeanFactory
+3. call BNTangBeanPostProcessor constructor
+4. call BNTangInstantiationAwareBeanPostProcessor constructor
+5. call InstantiationAwareBeanPostProcessor of postProcessBeforeInstantiation
+6. call BNTangBean no parameter constructor start！
+7. call InstantiationAwareBeanPostProcessor of postProcessAfterInstantiation
+8. call InstantiationAwareBeanPostProcessor of postProcessProperties
+9. call BeanNameAware setBeanName BNTangBean
+10. call BeanFactoryAware interface setBeanFactory
+11. call ApplicationContextAware interface of setApplicationContext
+12. call BeanPostProcessor of BeforeInitialization!
+13. call myInit method attribute config init method！
+14. call InitializingBean interface afterPropertiesSet
+15. call BeanPostProcessor of AfterInitialization!
+16. call myDestroy method attribute config init method！
+17. call DisposableBean interface destroy
+```

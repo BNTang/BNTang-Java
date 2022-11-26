@@ -3,10 +3,7 @@ package top.it6666.pojo;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.PropertyValues;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
-import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
-
-import java.beans.PropertyDescriptor;
 
 /**
  * @author BNTang
@@ -17,10 +14,18 @@ import java.beans.PropertyDescriptor;
  **/
 @Component
 public class BNTangInstantiationAwareBeanPostProcessor implements InstantiationAwareBeanPostProcessor {
+
+    public BNTangInstantiationAwareBeanPostProcessor() {
+        System.out.println("4. call BNTangInstantiationAwareBeanPostProcessor constructor");
+    }
+
     /**
      * 实例化之前 call
      */
     public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
+        if("BNTangBean".equals(beanName)){
+            System.out.println("5. call InstantiationAwareBeanPostProcessor of postProcessBeforeInstantiation");
+        }
         return null;
     }
 
@@ -28,6 +33,9 @@ public class BNTangInstantiationAwareBeanPostProcessor implements InstantiationA
      * 实例化之后 call
      */
     public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
+        if("BNTangBean".equals(beanName)){
+            System.out.println("7. call InstantiationAwareBeanPostProcessor of postProcessAfterInstantiation");
+        }
         return true;
     }
 
@@ -35,6 +43,9 @@ public class BNTangInstantiationAwareBeanPostProcessor implements InstantiationA
      * 当属性处理完之后会传入进来
      */
     public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) throws BeansException {
+        if("BNTangBean".equals(beanName)){
+            System.out.println("8. call InstantiationAwareBeanPostProcessor of postProcessProperties");
+        }
         return null;
     }
 }

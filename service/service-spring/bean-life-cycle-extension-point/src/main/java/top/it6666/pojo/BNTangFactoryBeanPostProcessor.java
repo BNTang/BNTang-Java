@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class BNTangFactoryBeanPostProcessor implements BeanFactoryPostProcessor {
     public BNTangFactoryBeanPostProcessor() {
-        System.out.println("call BNTangFactoryBeanPostProcessor constructor");
+        System.out.println("1. call BNTangFactoryBeanPostProcessor constructor");
     }
 
     /**
@@ -23,6 +23,6 @@ public class BNTangFactoryBeanPostProcessor implements BeanFactoryPostProcessor 
      */
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory configurableListableBeanFactory) throws BeansException {
-        System.out.println("11. call BeanFactoryPostProcessor of postProcessBeanFactory");
+        System.out.println("2. call BeanFactoryPostProcessor of postProcessBeanFactory");
     }
 }

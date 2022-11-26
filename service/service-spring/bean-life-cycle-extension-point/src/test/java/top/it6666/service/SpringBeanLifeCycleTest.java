@@ -21,6 +21,5 @@ public class SpringBeanLifeCycleTest {
 
     @Test
     public void testBeanLifeCycle(){
-        System.out.println(bnTangBean);
     }
 }

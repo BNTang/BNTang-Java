@@ -33,33 +33,33 @@ public class BNTangBean implements InitializingBean, DisposableBean, BeanNameAwa
     private String beanName;
 
     public BNTangBean() {
-        System.out.println("1. BNTangBean no parameter constructor start！");
+        System.out.println("6. call BNTangBean no parameter constructor start！");
     }
 
     @PostConstruct
     public void myInit() {
-        System.out.println("2. call myInit method attribute config init method！");
+        System.out.println("13. call myInit method attribute config init method！");
     }
 
     @PreDestroy
     public void myDestroy() {
-        System.out.println("3. call myDestroy method attribute config init method！");
+        System.out.println("16. call myDestroy method attribute config init method！");
     }
 
     @Override
     public void afterPropertiesSet() {
-        System.out.println("4. call InitializingBean interface afterPropertiesSet");
+        System.out.println("14. call InitializingBean interface afterPropertiesSet");
     }
 
     @Override
     public void destroy() {
-        System.out.println("5. call DisposableBean interface destroy");
+        System.out.println("17. call DisposableBean interface destroy");
     }
 
     @Override
     public void setBeanName(String beanName) {
         this.beanName = beanName;
-        System.out.println("6. call BeanNameAware setBeanName " + beanName);
+        System.out.println("9. call BeanNameAware setBeanName " + beanName);
     }
 
     @Override
@@ -73,7 +73,7 @@ public class BNTangBean implements InitializingBean, DisposableBean, BeanNameAwa
 
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        System.out.println("7. call BeanFactoryAware interface setBeanFactory");
+        System.out.println("10. call BeanFactoryAware interface setBeanFactory");
     }
 
     public String getName() {
@@ -98,6 +98,6 @@ public class BNTangBean implements InitializingBean, DisposableBean, BeanNameAwa
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        System.out.println("8. call ApplicationContextAware interface of setApplicationContext");
+        System.out.println("11. call ApplicationContextAware interface of setApplicationContext");
     }
 }

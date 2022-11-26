@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @Api(tags = "EE CRUD API 接口")
-public class TestUseEeController {
+public class TestUseEeCRUDController {
     private final DocumentMapper documentMapper;
 
     @ApiOperation("插入数据")

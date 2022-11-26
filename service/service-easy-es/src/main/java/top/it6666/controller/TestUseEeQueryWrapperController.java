@@ -16,6 +16,4 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/eeQueryWrapper-controller")
 public class TestUseEeQueryWrapperController {
 
-
-
 }

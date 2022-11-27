@@ -36,7 +36,7 @@ public class BNTangTestUseEeQueryWrapperController {
      * 可直接在对应接口的入参中添加索引名称,可参考下面示例
      */
     @GetMapping("/testIndex")
-    public ResultBody<Document> testIndex() {
+    ResultBody<Document> testIndex() {
         LambdaEsQueryWrapper<Document> queryWrapper = EsWrappers.lambdaQuery(Document.class);
         queryWrapper.index("document");
         queryWrapper.eq("title", "it6666");

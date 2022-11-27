@@ -82,6 +82,14 @@ public class ResultBody<T> implements Serializable {
         return ResultCode.SUCCESS.getCode().equals(result.getCode());
     }
 
+    public static <T> ResultBody<T> result(T date) {
+        ResultBody<T> result = new ResultBody<>();
+        result.setCode(ResultCode.SUCCESS.getCode());
+        result.setMessage(ResultCode.SUCCESS.getMessage());
+        result.setData(date);
+        return result;
+    }
+
     private static <T> ResultBody<T> result(Integer code, String msg) {
         ResultBody<T> result = new ResultBody<>();
         result.setCode(code);

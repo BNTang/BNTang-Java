@@ -15,5 +15,6 @@
         <module>service-api-doc</module>
         <module>service-easy-es</module>
         <module>service-spring</module>
+        <module>service-sa-token</module>
     </modules>
 </project>

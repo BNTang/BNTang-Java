@@ -5,16 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>top.it6666</groupId>
-        <artifactId>BNTang-Java</artifactId>
+        <artifactId>service</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>service</artifactId>
+
+    <artifactId>service-baomidou</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>service-swagger</module>
-        <module>service-api-doc</module>
-        <module>service-spring</module>
-        <module>service-dromara</module>
-        <module>service-baomidou</module>
+        <module>service-mybatis-plus</module>
     </modules>
 </project>

@@ -17,5 +17,7 @@
         <module>common-api-doc</module>
         <module>common-test</module>
         <module>common-dromara</module>
+        <module>common-baomidou</module>
+        <module>common-h2</module>
     </modules>
 </project>

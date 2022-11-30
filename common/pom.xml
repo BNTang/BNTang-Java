@@ -18,5 +18,6 @@
         <module>common-api-doc</module>
         <module>common-test</module>
         <module>common-sa-token</module>
+        <module>common-spring</module>
     </modules>
 </project>

@@ -12,6 +12,6 @@
     <artifactId>service-spring</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>bean-life-cycle-extension-point</module>
+        <module>service-spring-bean-life-cycle-extension-point</module>
     </modules>
 </project>

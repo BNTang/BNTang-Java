@@ -1,4 +1,4 @@
-#自定义 swagger信息
+# 自定义 swagger信息
 swagger:
   base-package: top.it6666
   description: Service-Swagger-API API document
@@ -12,3 +12,6 @@ spring:
       # 路径匹配策略  spring-boot 2.6 之后更改了匹配策略
       # Springboot2.6以后将SpringMVC 默认路径匹配策略从AntPathMatcher 更改为PathPatternParser，导致出错
       matching-strategy: ant_path_matcher
+
+server:
+  port: 50003

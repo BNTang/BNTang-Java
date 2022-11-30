@@ -16,5 +16,6 @@
         <module>service-spring</module>
         <module>service-dromara</module>
         <module>service-baomidou</module>
+        <module>service-codecentric</module>
     </modules>
 </project>

@@ -20,5 +20,6 @@
         <module>common-dromara</module>
         <module>common-baomidou</module>
         <module>common-h2</module>
+        <module>common-codecentric</module>
     </modules>
 </project>

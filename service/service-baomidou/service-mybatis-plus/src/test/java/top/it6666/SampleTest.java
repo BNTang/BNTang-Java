@@ -16,15 +16,14 @@ import java.util.List;
  * @date Created in 2022/12/1 23:41
  * @description
  **/
-@SpringBootTest
+@SpringBootTest(classes = ServiceMyBatisPlusApp.class)
 class SampleTest {
     @Resource
     private UserMapper userMapper;
 
     @Test
     void testSelect() {
-        System.out.println(("----- selectAll method test ------"));
-        List<User> userList = userMapper.selectList(null);
+        List<User> userList = this.userMapper.selectList(null);
         Assert.equals(5, userList.size());
         userList.forEach(System.out::println);
     }

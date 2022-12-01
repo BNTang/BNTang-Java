@@ -21,5 +21,6 @@
         <module>common-baomidou</module>
         <module>common-h2</module>
         <module>common-codecentric</module>
+        <module>common-designates</module>
     </modules>
 </project>

@@ -1,13 +1,12 @@
-package top.it6666.pojo;
+package top.it6666.schema;
 
 import lombok.Data;
-
 @Data
-public class User {
+public class Customer {
     /**
      * id
      */
-    private Long id;
+    private Integer id;
     /**
      * 名字
      */
@@ -17,7 +16,11 @@ public class User {
      */
     private Integer age;
     /**
-     * 电子邮件
+     * 地址
      */
-    private String email;
+    private String address;
+    /**
+     * 工资
+     */
+    private Integer salary;
 }

@@ -2,10 +2,10 @@
  * @author BNTang
  * @version V1.0
  * @project BNTang-Java
- * @date Created in 2022/11/22 23:27
- * @description @NonNullApi
+ * @date Created in 2022/11/26 20:05
+ * @description
  **/
 @NonNullApi
-package top.it6666.pojo;
+package top.it6666.schema;
 
 import org.springframework.lang.NonNullApi;

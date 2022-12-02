@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import top.it6666.mapper.CustomerMapper;
 import top.it6666.mapper.UserMapper;
-import top.it6666.pojo.Customer;
-import top.it6666.pojo.User;
+import top.it6666.schema.Customer;
+import top.it6666.schema.User;
 
 import javax.annotation.Resource;
 import java.util.List;

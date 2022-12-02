@@ -3,7 +3,7 @@ package top.it6666.service;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import top.it6666.BeanLifeCycleApp;
-import top.it6666.pojo.BNTangBean;
+import top.it6666.schema.BNTangBean;
 
 import javax.annotation.Resource;
 

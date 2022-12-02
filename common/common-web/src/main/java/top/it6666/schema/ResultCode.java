@@ -1,4 +1,4 @@
-package top.it6666.pojo;
+package top.it6666.schema;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

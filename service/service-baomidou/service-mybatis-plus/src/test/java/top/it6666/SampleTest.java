@@ -24,10 +24,18 @@ class SampleTest {
     private UserMapper userMapper;
     @Resource
     private CustomerMapper customerMapper;
+
     @Test
     void testCustomerSelect() {
         List<Customer> customerList = this.customerMapper.selectList(null);
         Assert.equals(7, customerList.size());
         customerList.forEach(System.out::println);
+    }
+
+    @Test
+    void testUserSelect() {
+        List<User> userList = this.userMapper.selectList(null);
+        Assert.equals(5, userList.size());
+        userList.forEach(System.out::println);
     }
 }

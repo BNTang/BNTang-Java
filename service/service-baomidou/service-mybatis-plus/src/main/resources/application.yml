@@ -20,7 +20,11 @@ spring:
     password: root
   sql:
     init:
-      schema-locations: classpath:db/h2/schema-customer-h2.sql
-      data-locations: classpath:db/h2/data-customer-h2.sql
+      schema-locations:
+        - classpath:db/h2/schema-customer-h2.sql
+        - classpath:db/h2/schema-user-h2.sql
+      data-locations:
+        - classpath:db/h2/data-customer-h2.sql
+        - classpath:db/h2/data-user-h2.sql
 
 # DB DataSource Config

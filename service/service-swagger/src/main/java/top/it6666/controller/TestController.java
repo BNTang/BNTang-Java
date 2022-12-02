@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
-import top.it6666.schema.Test;
+import top.it6666.pojo.Test;
 
 /**
  * 测试控制器

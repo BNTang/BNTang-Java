@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import top.it6666.mapper.DocumentMapper;
-import top.it6666.schema.Document;
+import top.it6666.pojo.Document;
 
 import java.util.List;
 

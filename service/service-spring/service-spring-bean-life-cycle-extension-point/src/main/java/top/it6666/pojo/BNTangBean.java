@@ -1,4 +1,4 @@
-package top.it6666.schema;
+package top.it6666.pojo;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;

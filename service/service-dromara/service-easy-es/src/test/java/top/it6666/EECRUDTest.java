@@ -3,7 +3,7 @@ package top.it6666;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import top.it6666.mapper.DocumentMapper;
-import top.it6666.schema.Document;
+import top.it6666.pojo.Document;
 
 import javax.annotation.Resource;
 

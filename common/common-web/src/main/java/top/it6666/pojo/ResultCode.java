@@ -3,8 +3,8 @@ package top.it6666.pojo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-@AllArgsConstructor
 @Getter
+@AllArgsConstructor
 public enum ResultCode implements IResultCode{
     SUCCESS(200, "响应成功"),
     CANNOT_FIND_USER(210001, "找不到指定的用户"),

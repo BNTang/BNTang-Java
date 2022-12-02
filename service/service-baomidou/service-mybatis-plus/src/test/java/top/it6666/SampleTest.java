@@ -3,7 +3,9 @@ package top.it6666;
 import cn.hutool.core.lang.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import top.it6666.mapper.CustomerMapper;
 import top.it6666.mapper.UserMapper;
+import top.it6666.pojo.Customer;
 import top.it6666.pojo.User;
 
 import javax.annotation.Resource;
@@ -20,11 +22,12 @@ import java.util.List;
 class SampleTest {
     @Resource
     private UserMapper userMapper;
-
+    @Resource
+    private CustomerMapper customerMapper;
     @Test
-    void testSelect() {
-        List<User> userList = this.userMapper.selectList(null);
-        Assert.equals(5, userList.size());
-        userList.forEach(System.out::println);
+    void testCustomerSelect() {
+        List<Customer> customerList = this.customerMapper.selectList(null);
+        Assert.equals(5, customerList.size());
+        customerList.forEach(System.out::println);
     }
 }

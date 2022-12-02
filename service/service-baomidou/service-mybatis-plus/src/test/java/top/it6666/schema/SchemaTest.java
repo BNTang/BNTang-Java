@@ -1,12 +1,11 @@
-package top.it6666;
+package top.it6666.schema;
 
 import cn.hutool.core.lang.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import top.it6666.ServiceMyBatisPlusApp;
 import top.it6666.mapper.CustomerMapper;
 import top.it6666.mapper.UserMapper;
-import top.it6666.schema.Customer;
-import top.it6666.schema.User;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -19,7 +18,7 @@ import java.util.List;
  * @description
  **/
 @SpringBootTest(classes = ServiceMyBatisPlusApp.class)
-class SampleTest {
+class SchemaTest {
     @Resource
     private UserMapper userMapper;
     @Resource

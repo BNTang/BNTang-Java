@@ -37,7 +37,8 @@
         <spring-cloud.version>2021.0.0</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
         <mybatis.version>2.2.2</mybatis.version>
-        <mybatis-plus.version>3.4.3</mybatis-plus.version>
+        <mybatis-plus.version>3.5.2</mybatis-plus.version>
+        <mybatis-plus-generator.version>3.5.2</mybatis-plus-generator.version>
         <lombok.version>1.18.18</lombok.version>
         <hutool.version>5.8.2</hutool.version>
         <!-- 覆盖SpringBoot中okhttp3的旧版本声明，解决MinIO 8.3.x的依赖冲突 -->
@@ -131,11 +132,15 @@
                 <artifactId>guava</artifactId>
                 <version>23.0</version>
             </dependency>
-
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus-generator.version}</version>
             </dependency>
             <!-- 分布式锁 -->
             <dependency>

@@ -1,30 +1,3 @@
-# H2 DataSource Config
-#spring:
-#  datasource:
-#    driver-class-name: org.h2.Driver
-#    schema: classpath:db/h2/schema-customer-h2.sql
-#    data: classpath:db/h2/data-customer-h2.sql
-#    username: root
-#    password: root
-#  sql:
-#    init:
-#      schema-locations: classpath:db/h2/schema-customer-h2.sql
-#      data-locations: classpath:db/h2/data-customer-h2.sql
-
-# H2 DataSource Config
 spring:
-  datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:test
-    username: root
-    password: root
-  sql:
-    init:
-      schema-locations:
-        - classpath:db/h2/schema-customer-h2.sql
-        - classpath:db/h2/schema-user-h2.sql
-      data-locations:
-        - classpath:db/h2/data-customer-h2.sql
-        - classpath:db/h2/data-user-h2.sql
-
-# DB DataSource Config
+  profiles:
+    active: mysql

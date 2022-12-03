@@ -9,10 +9,6 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>common-spring</artifactId>
+    <artifactId>common-apache</artifactId>
     <packaging>pom</packaging>
-    <modules>
-        <module>common-spring-security</module>
-        <module>common-spring-freemarker</module>
-    </modules>
 </project>

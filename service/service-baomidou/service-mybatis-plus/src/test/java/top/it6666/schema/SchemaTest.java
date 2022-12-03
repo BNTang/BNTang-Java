@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import top.it6666.ServiceMyBatisPlusApp;
 import top.it6666.mapper.CustomerMapper;
-import top.it6666.mapper.UserMapper;
+import top.it6666.mapper.SchemaUserMapper;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -20,7 +20,7 @@ import java.util.List;
 @SpringBootTest(classes = ServiceMyBatisPlusApp.class)
 class SchemaTest {
     @Resource
-    private UserMapper userMapper;
+    private SchemaUserMapper schemaUserMapper;
     @Resource
     private CustomerMapper customerMapper;
 
@@ -33,7 +33,7 @@ class SchemaTest {
 
     @Test
     void testUserSelect() {
-        List<User> userList = this.userMapper.selectList(null);
+        List<User> userList = this.schemaUserMapper.selectList(null);
         Assert.equals(5, userList.size());
         userList.forEach(System.out::println);
     }

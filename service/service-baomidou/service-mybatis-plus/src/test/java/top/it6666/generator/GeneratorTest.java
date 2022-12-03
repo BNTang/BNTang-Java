@@ -11,6 +11,13 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * 注意点，使用 mybatis plus 的代码生成器需要引入 mysql 的驱动包，然后将自己对应的数据自己更改替换
+ * 下方的 url username password 然后即可完成生成
+ *
+ * @author BNTang
+ * @date 2022/12/03
+ */
 @SpringBootTest
 class GeneratorTest {
     @Test

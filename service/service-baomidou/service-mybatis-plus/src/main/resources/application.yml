@@ -1,3 +1,5 @@
 spring:
   profiles:
     active: mysql
+server:
+  port: 40001

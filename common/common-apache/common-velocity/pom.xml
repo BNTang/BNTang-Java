@@ -5,17 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>top.it6666</groupId>
-        <artifactId>common-dromara</artifactId>
+        <artifactId>common-apache</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
-    <artifactId>common-easy-es</artifactId>
-
+    <artifactId>common-velocity</artifactId>
     <dependencies>
+        <!--velocity模板-->
         <dependency>
-            <groupId>cn.easy-es</groupId>
-            <artifactId>easy-es-boot-starter</artifactId>
-            <version>1.0.3</version>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-engine-core</artifactId>
+            <version>2.3</version>
         </dependency>
     </dependencies>
 </project>

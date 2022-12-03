@@ -11,4 +11,7 @@
 
     <artifactId>common-apache</artifactId>
     <packaging>pom</packaging>
+    <modules>
+        <module>common-velocity</module>
+    </modules>
 </project>

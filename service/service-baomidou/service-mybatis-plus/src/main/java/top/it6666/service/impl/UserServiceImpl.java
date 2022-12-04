@@ -7,6 +7,7 @@ import top.it6666.entity.User;
 import top.it6666.mapper.UserMapper;
 import top.it6666.service.IUserService;
 import top.it6666.template.SaveUpdateDBTemplate;
+import top.it6666.utils.DBResultUtil;
 
 import java.util.List;
 
@@ -28,15 +29,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
     @Override
     public int batchUpdate(List<User> elements) {
-        boolean result = updateBatchById(elements);
-        System.out.println(result);
-        return 0;
+        return DBResultUtil.doBoolToInt(updateBatchById(elements));
     }
 
     @Override
     public int batchInsert(List<User> elements) {
-        boolean result = saveBatch(elements);
-        System.out.println(result);
-        return 0;
+        return DBResultUtil.doBoolToInt(saveBatch(elements));
     }
 }

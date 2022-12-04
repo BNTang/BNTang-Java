@@ -1,0 +1,21 @@
+# 自定义 swagger信息
+swagger:
+  base-package: top.it6666
+  description: Service-MyBatis-Plus-API API document
+  title: Service-MyBatis-Plus-API
+  version: 1.0
+
+# ============================ Spring =========================================
+spring:
+  datasource:
+    # MySql DataSource Config
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3310/mybatisplus?useUnicode=true&useSSL=false&characterEncoding=utf8
+    username: root
+    password: root
+  # mvc
+  mvc:
+    pathmatch:
+      # 路径匹配策略  spring-boot 2.6 之后更改了匹配策略
+      # Springboot2.6以后将SpringMVC 默认路径匹配策略从AntPathMatcher 更改为PathPatternParser，导致出错
+      matching-strategy: ant_path_matcher

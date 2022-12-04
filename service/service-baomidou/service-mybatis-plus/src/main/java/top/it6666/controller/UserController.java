@@ -1,5 +1,7 @@
 package top.it6666.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,10 +23,12 @@ import top.it6666.service.IUserService;
 @RestController
 @RequestMapping("/user")
 @RequiredArgsConstructor(onConstructor = @__({@Autowired}))
+@Api(tags = "测试API接口")
 public class UserController {
     private final IUserService userService;
 
     @PostMapping("/testSaveUpdate")
+    @ApiOperation("保存或更新")
     ResultBody<Void> testSaveUpdate(@RequestBody User user) {
         this.userService.saveUpdate(user);
         return ResultBody.success();

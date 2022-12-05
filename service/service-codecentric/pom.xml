@@ -11,6 +11,6 @@
     <artifactId>service-codecentric</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>service-spring-admin</module>
+        <module>service-spring-admin-server</module>
     </modules>
 </project>

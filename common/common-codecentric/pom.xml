@@ -12,6 +12,7 @@
     <artifactId>common-codecentric</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>common-spring-admin</module>
+        <module>common-spring-admin-server</module>
+        <module>common-spring-admin-client</module>
     </modules>
 </project>

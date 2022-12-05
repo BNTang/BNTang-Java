@@ -52,6 +52,10 @@
         <aliyun.java.sdk.version>2.2.0.RELEASE</aliyun.java.sdk.version>
         <easyexcel.version>3.0.5</easyexcel.version>
         <redisson.version>3.16.8</redisson.version>
+
+        <!--监控-->
+        <spring-boot-admin-server-version>2.7.7</spring-boot-admin-server-version>
+        <spring-boot-admin-client-version>2.7.7</spring-boot-admin-client-version>
     </properties>
     <!--版本定义-->
 
@@ -147,6 +151,23 @@
                 <groupId>org.redisson</groupId>
                 <artifactId>redisson</artifactId>
                 <version>${redisson.version}</version>
+            </dependency>
+
+            <!--监控-->
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-server</artifactId>
+                <version>${spring-boot-admin-server-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-client</artifactId>
+                <version>${spring-boot-admin-client-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-server-ui</artifactId>
+                <version>${spring-boot-admin-server-version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -13,5 +13,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>service-spring-bean-life-cycle-extension-point</module>
+        <module>service-spring-cloud-eureka</module>
     </modules>
 </project>

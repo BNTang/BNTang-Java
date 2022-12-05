@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@EnableAdminServer
 @EnableAutoConfiguration
-public class ServiceSpringAdminApp {
+@EnableAdminServer
+public class ServiceSpringAdminServerApp {
     public static void main(String[] args) {
-        SpringApplication.run(ServiceSpringAdminApp.class, args);
+        SpringApplication.run(ServiceSpringAdminServerApp.class, args);
     }
 }

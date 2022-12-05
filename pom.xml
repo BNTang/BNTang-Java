@@ -54,7 +54,7 @@
         <redisson.version>3.16.8</redisson.version>
 
         <!--监控-->
-        <spring-boot-admin.version>2.7.7</spring-boot-admin.version>
+<!--        <spring-boot-admin.version>2.7.7</spring-boot-admin.version>-->
     </properties>
     <!--版本定义-->
 
@@ -153,16 +153,16 @@
             </dependency>
 
             <!--监控-->
-            <dependency>
-                <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-starter-server</artifactId>
-                <version>${spring-boot-admin.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-starter-client</artifactId>
-                <version>${spring-boot-admin.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>de.codecentric</groupId>-->
+<!--                <artifactId>spring-boot-admin-starter-server</artifactId>-->
+<!--                <version>${spring-boot-admin.version}</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>de.codecentric</groupId>-->
+<!--                <artifactId>spring-boot-admin-starter-client</artifactId>-->
+<!--                <version>${spring-boot-admin.version}</version>-->
+<!--            </dependency>-->
             <!--            &lt;!&ndash;老版本需要目前最新不需要了&ndash;&gt;-->
             <!--            <dependency>-->
             <!--                <groupId>de.codecentric</groupId>-->

@@ -23,5 +23,6 @@
         <module>common-codecentric</module>
         <module>common-designates</module>
         <module>common-apache</module>
+        <module>common-utils</module>
     </modules>
 </project>

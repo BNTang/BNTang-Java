@@ -1,23 +1,7 @@
 spring:
-  # ============================ Spring Boot Admin ============================
-  # 注册到 Spring Boot Admin
-  boot:
-    admin:
-      client:
-        url: http://127.0.0.1:50004
-  # ============================ Spring Boot Admin ============================
   profiles:
     active: devtest
   application:
     name: Service-MyBatis-Plus
 server:
   port: 40001
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-  info:
-    env:
-      enabled: true

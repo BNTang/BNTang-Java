@@ -14,8 +14,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @description
  **/
 @SpringBootApplication
-@EnableSwagger2Doc
-@EnableKnife4j
+//@EnableSwagger2Doc
+//@EnableKnife4j
 @MapperScan("top.it6666.mapper")
 public class ServiceMyBatisPlusApp {
     public static void main(String[] args) {

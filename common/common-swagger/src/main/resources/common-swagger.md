@@ -36,4 +36,7 @@ springboot 版本的安装相关依赖：
 npm install koa2-swagger-ui swagger-jsdoc --save
 ```
 
-# SpringBoot 
+> SpringBoot 2.x 使用 swagger 报 ‘documentationPluginsBootstrapper‘；java.lang.NullPointerException
+
+- 修复方法：注解 EnableSwagger2 改为 EnableWebMvc
+- 参考信息: https://springfox.github.io/springfox/docs/snapshot/#migrating-from-existing-2-x-version

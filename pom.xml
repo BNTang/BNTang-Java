@@ -22,7 +22,8 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.5</version>
+<!--        <version>2.6.5</version>-->
+        <version>2.7.6</version>
         <relativePath/>
     </parent>
     <!--spring boot version-->
@@ -53,8 +54,9 @@
         <easyexcel.version>3.0.5</easyexcel.version>
         <redisson.version>3.16.8</redisson.version>
 
-        <!--监控-->
+        <!--Spring Boot Admin 监控-->
 <!--        <spring-boot-admin.version>2.7.7</spring-boot-admin.version>-->
+        <spring-boot-admin.version>2.7.4</spring-boot-admin.version>
     </properties>
     <!--版本定义-->
 
@@ -159,23 +161,23 @@
 <!--                <version>${spring-boot-admin.version}</version>-->
 <!--            </dependency>-->
 <!--            <dependency>-->
-<!--                <groupId>de.codecentric</groupId>-->
-<!--                <artifactId>spring-boot-admin-starter-client</artifactId>-->
-<!--                <version>${spring-boot-admin.version}</version>-->
-<!--            </dependency>-->
+            <!--                <groupId>de.codecentric</groupId>-->
+            <!--                <artifactId>spring-boot-admin-starter-client</artifactId>-->
+            <!--                <version>${spring-boot-admin.version}</version>-->
+            <!--            </dependency>-->
             <!--            &lt;!&ndash;老版本需要目前最新不需要了&ndash;&gt;-->
             <!--            <dependency>-->
             <!--                <groupId>de.codecentric</groupId>-->
             <!--                <artifactId>spring-boot-admin-server-ui</artifactId>-->
             <!--                <version>${spring-boot-admin.version}</version>-->
             <!--            </dependency>-->
-            <!--            <dependency>-->
-            <!--                <groupId>de.codecentric</groupId>-->
-            <!--                <artifactId>spring-boot-admin-dependencies</artifactId>-->
-            <!--                <version>${spring-boot-admin.version}</version>-->
-            <!--                <type>pom</type>-->
-            <!--                <scope>import</scope>-->
-            <!--            </dependency>-->
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-dependencies</artifactId>
+                <version>${spring-boot-admin.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <!--父工程管理的依赖-->

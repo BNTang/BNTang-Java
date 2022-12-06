@@ -15,8 +15,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  * @description
  **/
 @EnableKnife4j
-//@EnableSwagger2Doc
-@EnableWebMvc
+@EnableSwagger2Doc
+//@EnableWebMvc
 @MapperScan("top.it6666.mapper")
 @SpringBootApplication
 public class ServiceMyBatisPlusApp {

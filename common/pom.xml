@@ -24,5 +24,6 @@
         <module>common-designates</module>
         <module>common-apache</module>
         <module>common-utils</module>
+        <module>common-xiaoymin</module>
     </modules>
 </project>

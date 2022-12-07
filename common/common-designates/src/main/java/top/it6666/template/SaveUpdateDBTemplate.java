@@ -21,12 +21,14 @@ public interface SaveUpdateDBTemplate<T> {
         // 可加入【多线程】进行再次优化
 
         // 将 List 平均分，然后在去进行入库
-        ListUtil.splitAvg(element, 20).forEach(ele -> {
+        final int avg = 20;
+        ListUtil.splitAvg(element, avg).forEach(ele -> {
             int rows = this.batchUpdate(ele);
 
             // 数据库都不存在的情况
             // 根据上面的代码，目前没有发现bug，但是可以进一步优化，比如：在if (rows < 1)中可以加入多线程，提高入库的效率。
             if (rows < 1) {
+                // 可加入多线程
                 this.batchInsert(ele);
                 return;
             }

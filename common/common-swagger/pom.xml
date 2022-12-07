@@ -9,6 +9,10 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <artifactId>common-swagger</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>common-swagger-v3</module>
+    </modules>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/com.spring4all/swagger-spring-boot-starter -->
         <dependency>

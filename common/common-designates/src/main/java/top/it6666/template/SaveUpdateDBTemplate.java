@@ -25,6 +25,7 @@ public interface SaveUpdateDBTemplate<T> {
             int rows = this.batchUpdate(ele);
 
             // 数据库都不存在的情况
+            // 根据上面的代码，目前没有发现bug，但是可以进一步优化，比如：在if (rows < 1)中可以加入多线程，提高入库的效率。
             if (rows < 1) {
                 this.batchInsert(ele);
                 return;

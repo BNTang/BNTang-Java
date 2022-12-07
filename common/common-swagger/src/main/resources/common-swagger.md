@@ -40,3 +40,7 @@ npm install koa2-swagger-ui swagger-jsdoc --save
 
 - 修复方法：注解 EnableSwagger2 改为 EnableWebMvc
 - 参考信息: https://springfox.github.io/springfox/docs/snapshot/#migrating-from-existing-2-x-version
+
+# Java Doc Url
+
+- https://springdoc.org/

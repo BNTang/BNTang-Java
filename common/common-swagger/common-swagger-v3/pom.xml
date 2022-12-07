@@ -8,8 +8,12 @@
         <artifactId>common-swagger</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
     <artifactId>common-swagger-v3</artifactId>
-
-
+    <dependencies>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>1.6.13</version>
+        </dependency>
+    </dependencies>
 </project>

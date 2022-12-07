@@ -3,46 +3,41 @@ package top.it6666.template;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.ListUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author BNTang
- * @version V1.0
- * @project BNTang-Java
- * @date Created in 2022/12/1 23:02
- * @description 保存或更改数据模板
- **/
 public interface SaveUpdateDBTemplate<T> {
-
-    default void saveUpdate(List<T> element) {
-        if (CollUtil.isEmpty(element)) {
+    default void saveUpdate(List<T> elements) {
+        if (CollUtil.isEmpty(elements)) {
             return;
         }
-        // 可加入【多线程】进行再次优化
 
+        // 主要是把 forEach 替换成了普通的 for 循环，这样可以避免使用 break 或 return 来退出循环。同时，
+        // 我们把 ListUtil.splitAvg() 方法的结果直接循环遍历，避免了额外的 lambda 表达式
         // 将 List 平均分，然后在去进行入库
         final int avg = 20;
-        ListUtil.splitAvg(element, avg).forEach(ele -> {
-            int rows = this.batchUpdate(ele);
+        for (List<T> element : ListUtil.splitAvg(elements, avg)) {
+            int rows = this.batchUpdate(element);
 
             // 数据库都不存在的情况
-            // 根据上面的代码，目前没有发现bug，但是可以进一步优化，比如：在if (rows < 1)中可以加入多线程，提高入库的效率。
             if (rows < 1) {
-                // 可加入多线程
-                this.batchInsert(ele);
-                return;
+                this.batchInsert(element);
+                break;
             }
 
             // 数据库存在数据的情况，但是有一部分是没有的，那么没有的部分是需要新增进去，但是有的就进行更改
-            if (rows != ele.size()) {
-                ele.forEach(actionEle -> {
-                    List<T> ts = CollUtil.newArrayList(actionEle);
-                    if (this.batchUpdate(ts) < 1) {
-                        this.batchInsert(ts);
+            List<T> insertElement = new ArrayList<>();
+            if (rows != element.size()) {
+                for (T e : element) {
+                    if (this.batchUpdate(CollUtil.newArrayList(e)) < 1) {
+                        insertElement.add(e);
                     }
-                });
+                }
             }
-        });
+            if (CollUtil.isNotEmpty(insertElement)) {
+                this.batchInsert(insertElement);
+            }
+        }
     }
 
     int batchUpdate(List<T> elements);

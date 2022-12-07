@@ -6,7 +6,18 @@ import cn.hutool.core.collection.ListUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 保存更新dbtemplate
+ *
+ * @author BNTang
+ * @date 2022/12/07
+ */
 public interface SaveUpdateDBTemplate<T> {
+    /**
+     * 保存更新
+     *
+     * @param elements 元素
+     */
     default void saveUpdate(List<T> elements) {
         if (CollUtil.isEmpty(elements)) {
             return;
@@ -40,7 +51,19 @@ public interface SaveUpdateDBTemplate<T> {
         }
     }
 
+    /**
+     * 批量更新
+     *
+     * @param elements 元素
+     * @return int
+     */
     int batchUpdate(List<T> elements);
 
+    /**
+     * 批量插入
+     *
+     * @param elements 元素
+     * @return int
+     */
     int batchInsert(List<T> elements);
 }

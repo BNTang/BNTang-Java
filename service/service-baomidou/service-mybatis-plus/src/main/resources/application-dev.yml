@@ -25,6 +25,8 @@ spring:
     admin:
       client:
         url: http://127.0.0.1:50004
+        instance:
+          service-base-url: http://127.0.0.1:40001
   # ============================ Spring Boot Admin ============================
 
 management:

@@ -10,21 +10,9 @@
     </parent>
 
     <artifactId>service-swagger</artifactId>
-    <dependencies>
-        <dependency>
-            <groupId>top.it6666</groupId>
-            <artifactId>common-web</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>top.it6666</groupId>
-            <artifactId>common-lombok</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>top.it6666</groupId>
-            <artifactId>common-swagger-v2</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
+    <packaging>pom</packaging>
+    <modules>
+        <module>service-swagger-v3</module>
+        <module>service-swagger-v2</module>
+    </modules>
 </project>

@@ -5,15 +5,21 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>top.it6666</groupId>
-        <artifactId>common-swagger</artifactId>
+        <artifactId>service-swagger</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>common-swagger-v3</artifactId>
+
+    <artifactId>service-swagger-v3</artifactId>
     <dependencies>
         <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-ui</artifactId>
-            <version>1.6.4</version>
+            <groupId>top.it6666</groupId>
+            <artifactId>common-swagger-v3</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>top.it6666</groupId>
+            <artifactId>common-web</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>

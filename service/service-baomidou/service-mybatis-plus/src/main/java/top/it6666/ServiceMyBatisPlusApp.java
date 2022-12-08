@@ -1,7 +1,6 @@
 package top.it6666;
 
 import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
-import com.spring4all.swagger.EnableSwagger2Doc;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,8 +14,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  * @description
  **/
 @EnableKnife4j
-@EnableSwagger2Doc
-//@EnableWebMvc
+//@EnableSwagger2Doc
+@EnableWebMvc
 @MapperScan("top.it6666.mapper")
 @SpringBootApplication
 public class ServiceMyBatisPlusApp {

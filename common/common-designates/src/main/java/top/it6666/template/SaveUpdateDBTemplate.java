@@ -11,6 +11,8 @@ import java.util.List;
  *
  * @author BNTang
  * @date 2022/12/07
+ * 目前这个模板对数据库的负载不大，然后呢就是三个条件分支，分支较多，可以改进的点可以使用多线程，但是呢，使用了多线程
+ * 就会面临使用多线程带来的一些列线程等方面的问题
  */
 public interface SaveUpdateDBTemplate<T> {
     /**

@@ -1,9 +1,14 @@
 # ============================ 自定义 swagger信息 =================
+# 自定义 knife4j 信息
 swagger:
-  base-package: top.it6666
-  description: Service-MyBatis-Plus-API API document
+  base-package: top.it6666.controller
+  description: Service-MyBatis-Plus API document
   title: Service-MyBatis-Plus-API
   version: 1.0
+
+swagger2:
+  title: Service-MyBatis-Plus App
+  description: Service-MyBatis-Plus App API document
 
 # ============================ Spring =========================================
 spring:

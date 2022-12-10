@@ -1,6 +1,6 @@
-# 自定义 swagger信息
+# 自定义 knife4j 信息
 swagger:
-  base-package: top.it6666
+  base-package: top.it6666.controller
   description: Service-Swagger-API API document
   title: Service-Swagger-API
   version: 1.0

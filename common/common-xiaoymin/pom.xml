@@ -12,6 +12,7 @@
     <artifactId>common-xiaoymin</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>common-knife4j</module>
+        <module>common-knife4j-swagger-2</module>
+        <module>common-knife4j-open-api3</module>
     </modules>
 </project>

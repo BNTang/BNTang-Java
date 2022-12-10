@@ -5,6 +5,10 @@ swagger:
   title: Service-Swagger-API
   version: 1.0
 
+swagger2:
+  title: Service-Swagger V2 App
+  description: Service-Swagger V2 App API document
+
 # mvc
 spring:
   mvc:

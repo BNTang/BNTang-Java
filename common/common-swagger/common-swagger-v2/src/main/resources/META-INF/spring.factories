@@ -1,0 +1,1 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=top.it6666.config.BNTangSwagger2Config

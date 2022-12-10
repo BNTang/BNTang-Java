@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>top.it6666</groupId>
+        <artifactId>common-xiaoymin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>common-knife4j-open-api3</artifactId>
+    <dependencies>
+        <!--OpenAPI3-->
+        <!--引入Knife4j的官方ui包,OpenAPI3建议使用springdoc-openapi项目-->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-springdoc-ui</artifactId>
+            <version>3.0.3</version>
+        </dependency>
+    </dependencies>
+</project>

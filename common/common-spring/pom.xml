@@ -15,5 +15,6 @@
         <module>common-spring-security</module>
         <module>common-spring-freemarker</module>
         <module>common-spring-cloud-eureka</module>
+        <module>common-spring-boot-starter</module>
     </modules>
 </project>

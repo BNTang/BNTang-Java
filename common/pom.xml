@@ -25,5 +25,6 @@
         <module>common-apache</module>
         <module>common-utils</module>
         <module>common-xiaoymin</module>
+        <module>common-alibaba</module>
     </modules>
 </project>

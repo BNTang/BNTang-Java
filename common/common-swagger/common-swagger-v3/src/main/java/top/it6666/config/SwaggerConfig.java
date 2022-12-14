@@ -59,7 +59,7 @@ public class SwaggerConfig {
                 .apis(RequestHandlerSelectors.basePackage("top.it6666.controller"))
                 .paths(PathSelectors.any())
                 .build();
-        //.groupName("情指勤舆 - 一号作战部");
+        //.groupName("demo Pro");
     }
 
     /**

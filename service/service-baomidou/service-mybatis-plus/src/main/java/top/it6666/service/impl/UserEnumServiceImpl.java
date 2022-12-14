@@ -1,6 +1,7 @@
 package top.it6666.service.impl;
 
 import cn.hutool.core.collection.CollUtil;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import top.it6666.entity.UserEnum;
@@ -32,6 +33,7 @@ public class UserEnumServiceImpl extends ServiceImpl<UserEnumMapper, UserEnum>
         int result = 0;
         for (UserEnum element : elements) {
             // todo: mp 存在一个问题，没有提供 service 的批量更新by id 的返回值为 int 类型的方法
+            // 貌似mapper 层 选装件 可以解决该问题
             result += this.userEnumMapper.updateById(element);
         }
         return result;
@@ -45,5 +47,11 @@ public class UserEnumServiceImpl extends ServiceImpl<UserEnumMapper, UserEnum>
     @Override
     public void testUserEnum(UserEnum userEnum) {
         saveUpdate(CollUtil.newArrayList(userEnum));
+    }
+
+    @Override
+    public List<UserEnum> getUserEnumList() {
+        QueryWrapper<UserEnum> queryWrapper = new QueryWrapper<>();
+        return list(queryWrapper);
     }
 }

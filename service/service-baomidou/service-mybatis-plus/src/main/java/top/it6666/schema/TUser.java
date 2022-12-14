@@ -3,7 +3,7 @@ package top.it6666.schema;
 import lombok.Data;
 
 @Data
-public class User {
+public class TUser {
     /**
      * id
      */

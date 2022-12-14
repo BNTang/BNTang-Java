@@ -4,8 +4,8 @@ import cn.hutool.core.lang.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import top.it6666.ServiceMyBatisPlusApp;
-import top.it6666.mapper.CustomerMapper;
-import top.it6666.mapper.SchemaUserMapper;
+import top.it6666.mapper.SchemaCustomerMapper;
+import top.it6666.mapper.SchemaTUserMapper;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -20,9 +20,9 @@ import java.util.List;
 @SpringBootTest(classes = ServiceMyBatisPlusApp.class)
 class SchemaTest {
     @Resource
-    private SchemaUserMapper schemaUserMapper;
+    private SchemaTUserMapper schemaUserMapper;
     @Resource
-    private CustomerMapper customerMapper;
+    private SchemaCustomerMapper customerMapper;
 
     @Test
     void testCustomerSelect() {
@@ -33,7 +33,7 @@ class SchemaTest {
 
     @Test
     void testUserSelect() {
-        List<User> userList = this.schemaUserMapper.selectList(null);
+        List<TUser> userList = this.schemaUserMapper.selectList(null);
         Assert.equals(5, userList.size());
         userList.forEach(System.out::println);
     }

@@ -1,7 +1,7 @@
 DELETE
-FROM USER;
+FROM `T_USER`;
 
-INSERT INTO USER (id, name, age, email)
+INSERT INTO `T_USER` (id, name, age, email)
 VALUES (1, 'Jone', 18, 'test1@baomidou.com'),
        (2, 'Jack', 20, 'test2@baomidou.com'),
        (3, 'Tom', 28, 'test3@baomidou.com'),

@@ -15,7 +15,6 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +30,7 @@ import java.util.List;
 @Slf4j
 @Configuration
 @EnableOpenApi
-public class SwaggerConfig {
+public class Swagger3Config {
     @Value("${server.port}")
     private int port;
 
@@ -107,11 +106,8 @@ public class SwaggerConfig {
         return responseList;
     }
 
+    @SneakyThrows
     public String getLocalIP() {
-        try {
-            return InetAddress.getLocalHost().getHostAddress();
-        } catch (UnknownHostException e) {
-            throw new RuntimeException(e);
-        }
+        return InetAddress.getLocalHost().getHostAddress();
     }
 }

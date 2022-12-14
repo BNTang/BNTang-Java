@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  top.it6666.config.SwaggerConfig
+  top.it6666.config.Swagger3Config

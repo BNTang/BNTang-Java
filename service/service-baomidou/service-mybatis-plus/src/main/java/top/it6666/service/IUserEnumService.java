@@ -2,7 +2,7 @@ package top.it6666.service;
 
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import top.it6666.entity.User;
+import top.it6666.entity.UserEnum;
 
 /**
  * <p>
@@ -12,6 +12,6 @@ import top.it6666.entity.User;
  * @author BNTang
  * @since 2022-12-03
  */
-public interface IUserService extends IService<User> {
-    void saveUpdate(User user);
+public interface IUserEnumService extends IService<UserEnum> {
+    void testUserEnum(UserEnum userEnum);
 }

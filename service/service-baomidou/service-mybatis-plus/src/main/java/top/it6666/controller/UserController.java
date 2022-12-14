@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.it6666.entity.User;
+import top.it6666.entity.UserEnum;
 import top.it6666.pojo.ResultBody;
+import top.it6666.service.IUserEnumService;
 import top.it6666.service.IUserService;
 
 /**
@@ -26,11 +28,19 @@ import top.it6666.service.IUserService;
 @Api(tags = "测试API接口")
 public class UserController {
     private final IUserService userService;
+    private final IUserEnumService iUserEnumService;
 
     @PostMapping("/testSaveUpdate")
     @ApiOperation("保存或更新")
     ResultBody<Void> testSaveUpdate(@RequestBody User user) {
         this.userService.saveUpdate(user);
+        return ResultBody.success();
+    }
+
+    @PostMapping("/testUserEnum")
+    @ApiOperation("删除或更新UserEnum")
+    ResultBody<Void> testUserEnum(@RequestBody UserEnum userEnum) {
+        this.iUserEnumService.testUserEnum(userEnum);
         return ResultBody.success();
     }
 }

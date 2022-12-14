@@ -46,7 +46,7 @@ public class SwaggerConfig {
         // 控制台输出Knife4j增强接口文档地址
         log.info("swagger3 接口文档地址: http://{}:{}{}/swagger-ui/index.html#/", ipAddress, port, contextPath);
         log.info("Knife4j 增强接口文档地址: http://{}:{}{}/doc.html", ipAddress, port, contextPath);
-        log.info("Knife4j增强接口文档地址《计算机名称》: http://{}:{}{}/doc.html", InetAddress.getLocalHost().getHostName(), port, contextPath);
+        log.info("Knife4j 增强接口文档地址《计算机名称》: http://{}:{}{}/doc.html", InetAddress.getLocalHost().getHostName(), port, contextPath);
 
         return new Docket(DocumentationType.OAS_30)
                 .apiInfo(apiInfo())

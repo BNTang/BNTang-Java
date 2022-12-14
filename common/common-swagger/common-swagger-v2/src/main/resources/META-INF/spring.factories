@@ -1,3 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  top.it6666.properties.BNTangSwagger2Properties,\
   top.it6666.properties.BNTangServerSwagger2Properties,\
   top.it6666.config.BNTangSwagger2Config

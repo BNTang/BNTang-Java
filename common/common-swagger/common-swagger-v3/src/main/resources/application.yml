@@ -1,0 +1,7 @@
+# open api 配置
+springdoc:
+  packages-to-scan: com.it6666.controller
+  swagger-ui:
+    enabled: true
+  api-docs:
+    enabled: true

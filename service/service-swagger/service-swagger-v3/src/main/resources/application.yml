@@ -1,2 +1,7 @@
 server:
   port: 50006
+
+swagger3:
+  title: Service-Swagger V3 App
+  description: Service-Swagger V3 App API document
+  version: v1.0.0

@@ -12,7 +12,6 @@
 
     <dependencies>
         <!--OpenAPI3-->
-        <!--引入Knife4j的官方ui包,OpenAPI3建议使用springdoc-openapi项目-->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-springdoc-ui</artifactId>

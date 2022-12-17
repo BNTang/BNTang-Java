@@ -9,43 +9,16 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <artifactId>common-swagger-v3</artifactId>
-    <properties>
-        <springfox-boot-starter.version>3.0.0</springfox-boot-starter.version>
-    </properties>
     <dependencies>
-        <!--
-        springfox-boot-starter3.0.0已经将springfox-swagger2、springfox-swagger-ui集成在里面
-        -->
-<!--        <dependency>-->
-<!--            <groupId>io.springfox</groupId>-->
-<!--            <artifactId>springfox-boot-starter</artifactId>-->
-<!--            <version>${springfox-boot-starter.version}</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>top.it6666</groupId>-->
-<!--            <artifactId>common-knife4j-open-api3</artifactId>-->
-<!--            <version>1.0-SNAPSHOT</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>top.it6666</groupId>-->
-<!--            <artifactId>common-lombok</artifactId>-->
-<!--            <version>1.0-SNAPSHOT</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>top.it6666</groupId>-->
-<!--            <artifactId>common-web</artifactId>-->
-<!--            <version>1.0-SNAPSHOT</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>top.it6666</groupId>-->
-<!--            <artifactId>common-hutool</artifactId>-->
-<!--            <version>1.0-SNAPSHOT</version>-->
-<!--        </dependency>-->
-
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-ui</artifactId>
             <version>1.6.11</version>
+        </dependency>
+        <dependency>
+            <groupId>top.it6666</groupId>
+            <artifactId>common-knife4j-open-api3</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>

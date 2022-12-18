@@ -5,15 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>top.it6666</groupId>
-        <artifactId>common</artifactId>
+        <artifactId>common-xiaoymin</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>common-xiaoymin</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>common-knife4j-swagger-2</module>
-        <module>common-knife4j-open-api3</module>
-        <module>common-bootstrap-ui</module>
-    </modules>
+    <artifactId>common-bootstrap-ui</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>swagger-bootstrap-ui</artifactId>
+        </dependency>
+    </dependencies>
 </project>

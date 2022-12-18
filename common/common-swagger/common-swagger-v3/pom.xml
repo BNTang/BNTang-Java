@@ -16,18 +16,27 @@
             <artifactId>springdoc-openapi-ui</artifactId>
             <version>1.6.11</version>
         </dependency>
+
         <!--web 依赖-->
         <dependency>
             <groupId>top.it6666</groupId>
             <artifactId>common-web</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+
         <!--knife4j swagger 皮肤-->
         <dependency>
             <groupId>top.it6666</groupId>
             <artifactId>common-knife4j-open-api3</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>top.it6666</groupId>
+            <artifactId>common-bootstrap-ui</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!--工具篇-->
         <dependency>
             <groupId>top.it6666</groupId>
             <artifactId>common-hutool</artifactId>

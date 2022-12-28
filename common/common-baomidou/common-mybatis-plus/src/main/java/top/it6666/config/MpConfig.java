@@ -1,5 +1,12 @@
 package top.it6666.config;
 
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.alibaba.fastjson.support.config.FastJsonConfig;
+import com.baomidou.mybatisplus.autoconfigure.MybatisPlusPropertiesCustomizer;
+import com.baomidou.mybatisplus.core.MybatisConfiguration;
+import com.baomidou.mybatisplus.core.config.GlobalConfig;
+import com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -9,10 +16,20 @@ import org.springframework.context.annotation.Configuration;
  **/
 @Configuration
 public class MpConfig {
-//    @Bean
-//    public FastJsonConfig fastJsonConfig() {
-//        FastJsonConfig config = new FastJsonConfig();
-//        config.setSerializerFeatures(SerializerFeature.WriteEnumUsingToString);
-//        return config;
-//    }
+    @Bean
+    public MybatisPlusPropertiesCustomizer mybatisPlusPropertiesCustomizer() {
+        // 序列化枚举值为数据库存储值
+        FastJsonConfig config = new FastJsonConfig();
+        config.setSerializerFeatures(SerializerFeature.WriteEnumUsingToString);
+
+        return properties -> {
+            GlobalConfig globalConfig = properties.getGlobalConfig();
+            globalConfig.setBanner(false);
+
+            MybatisConfiguration configuration = new MybatisConfiguration();
+            configuration.setDefaultEnumTypeHandler(MybatisEnumTypeHandler.class);
+            properties.setConfiguration(configuration);
+        };
+    }
+
 }

@@ -1,11 +1,13 @@
 package top.it6666.enums;
 
 import com.baomidou.mybatisplus.annotation.EnumValue;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
-import lombok.ToString;
+import lombok.Getter;
 
 @AllArgsConstructor
-@ToString
+@Getter
+@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum GradeEnum {
     PRIMARY(1,"小学"),
     SECONDORY(2,"中学"),
@@ -15,5 +17,5 @@ public enum GradeEnum {
      */
     @EnumValue
     private final int code;
-    private final String descp;
+    private final String desc;
 }

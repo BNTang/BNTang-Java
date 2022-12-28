@@ -1,5 +1,7 @@
 package top.it6666.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -40,6 +42,7 @@ public class UserEnum implements Serializable {
      */
     @TableField("age")
     @ApiModelProperty("年龄")
+    @JSONField(serialzeFeatures= SerializerFeature.WriteEnumUsingToString)
     private AgeEnum age;
 
     @TableField("email")
@@ -51,5 +54,6 @@ public class UserEnum implements Serializable {
      * 数据库字段：grade INT(2)
      */
     @TableField("grade")
+    @JSONField(serialzeFeatures= SerializerFeature.WriteEnumUsingToString)
     private GradeEnum grade;
 }

@@ -9,7 +9,7 @@ public enum AgeEnum implements IEnum<Integer> {
     TWO(2, "二岁"),
     THREE(3, "三岁");
 
-    private final int value;
+    private final Integer value;
     private final String desc;
 
     @Override

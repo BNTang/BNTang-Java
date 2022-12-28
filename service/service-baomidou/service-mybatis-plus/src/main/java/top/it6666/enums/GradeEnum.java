@@ -2,8 +2,10 @@ package top.it6666.enums;
 
 import com.baomidou.mybatisplus.annotation.EnumValue;
 import lombok.AllArgsConstructor;
+import lombok.ToString;
 
 @AllArgsConstructor
+@ToString
 public enum GradeEnum {
     PRIMARY(1,"小学"),
     SECONDORY(2,"中学"),

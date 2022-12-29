@@ -3,13 +3,17 @@ package top.it6666.config;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.baomidou.mybatisplus.annotation.DbType;
+import com.baomidou.mybatisplus.autoconfigure.ConfigurationCustomizer;
 import com.baomidou.mybatisplus.autoconfigure.MybatisPlusPropertiesCustomizer;
 import com.baomidou.mybatisplus.core.MybatisConfiguration;
 import com.baomidou.mybatisplus.core.config.GlobalConfig;
 import com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler;
+import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.Collections;
 
 /**
  * @author BNTang
@@ -35,14 +39,23 @@ public class BNTangMpConfig {
     }
 
     /**
-     * 分页内拦截器
-     *
-     * @return {@code PaginationInnerInterceptor}
+     * 分页插件 3.5.X https://blog.csdn.net/moshowgame/article/details/123058673
      */
     @Bean
     public PaginationInnerInterceptor paginationInnerInterceptor() {
-        PaginationInnerInterceptor paginationInnerInterceptor = new PaginationInnerInterceptor();
-        paginationInnerInterceptor.setDbType(DbType.MYSQL);
-        return paginationInnerInterceptor;
+        PaginationInnerInterceptor paginationInterceptor = new PaginationInnerInterceptor();
+        // 设置最大单页限制数量，默认 500 条，-1 不受限制
+        paginationInterceptor.setMaxLimit(-1L);
+        paginationInterceptor.setDbType(DbType.MYSQL);
+        // 开启 count 的 join 优化,只针对部分 left join
+        paginationInterceptor.setOptimizeJoin(true);
+        return paginationInterceptor;
+    }
+
+    @Bean
+    public MybatisPlusInterceptor mybatisPlusInterceptor() {
+        MybatisPlusInterceptor mybatisPlusInterceptor = new MybatisPlusInterceptor();
+        mybatisPlusInterceptor.setInterceptors(Collections.singletonList(paginationInnerInterceptor()));
+        return mybatisPlusInterceptor;
     }
 }

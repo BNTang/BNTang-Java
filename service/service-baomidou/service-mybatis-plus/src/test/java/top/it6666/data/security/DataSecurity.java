@@ -16,9 +16,9 @@ class DataSecurity {
         String secretKey = AES.generateRandomKey();
         System.out.println("secretKey:" + secretKey);
 
-        String url = AES.encrypt("jdbc:p6spy:mysql://lzys522.cn:3310/mybatisplus?useUnicode=true&useSSL=false&characterEncoding=utf8", secretKey);
+        String url = AES.encrypt("jdbc:p6spy:mysql://localhost:3310/mybatisplus?useUnicode=true&useSSL=false&characterEncoding=utf8", secretKey);
         String username = AES.encrypt("root", secretKey);
-        String password = AES.encrypt("yangbuyiya", secretKey);
+        String password = AES.encrypt("root", secretKey);
         System.out.println("url=" +url );
         System.out.println("username=" +username );
         System.out.println("password=" +password );

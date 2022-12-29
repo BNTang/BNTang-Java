@@ -6,12 +6,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.env.EnvironmentPostProcessor;
 import org.springframework.core.Ordered;
 import org.springframework.core.env.ConfigurableEnvironment;
-import org.springframework.core.env.PropertySource;
 import org.springframework.core.env.SimpleCommandLinePropertySource;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Objects;
 import java.util.Properties;
 
 /**
@@ -24,26 +24,27 @@ import java.util.Properties;
 public class BNTangSafetyEncryptProcessor implements EnvironmentPostProcessor, Ordered {
     @Override
     public void postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application) {
-        Properties pro = new Properties();
-        try (InputStream inputStream = new ClassPathResource("ert.properties").getInputStream()) {
-            pro.load(inputStream);
-        } catch (IOException e) {
-            log.error("Error loading properties file", e);
-        }
+        // 从命令行中获取密钥
+        String mpwKey = environment.getPropertySources()
+                .stream()
+                .filter(SimpleCommandLinePropertySource.class::isInstance)
+                .map(SimpleCommandLinePropertySource.class::cast)
+                .map(source -> source.getProperty("mpw.key"))
+                .filter(Objects::nonNull)
+                .findFirst()
+                .orElse(null);
 
-        // 命令行中获取密钥
-        String mpwKey = null;
-        for (PropertySource<?> ps : environment.getPropertySources()) {
-            if (ps instanceof SimpleCommandLinePropertySource) {
-                SimpleCommandLinePropertySource source = (SimpleCommandLinePropertySource) ps;
-                mpwKey = source.getProperty("mpw.key");
-                break;
-            }
-        }
         if (StringUtils.isEmpty(mpwKey)) {
+            // 如果命令行中没有获取到密钥，就使用属性文件中的值
+            Properties pro = new Properties();
+            try (InputStream inputStream = new ClassPathResource("ert.properties").getInputStream()) {
+                pro.load(inputStream);
+            } catch (IOException e) {
+                log.error("Error loading properties file", e);
+            }
             environment.getPropertySources()
-                    .addFirst(new SimpleCommandLinePropertySource("mySpringApplicationCommandLineArgs", "--mpw.key="
-                            + pro.getProperty("ert.version")));
+                    .addFirst(new SimpleCommandLinePropertySource("mySpringApplicationCommandLineArgs",
+                            "--mpw.key=" + pro.getProperty("ert.version")));
         }
     }
 

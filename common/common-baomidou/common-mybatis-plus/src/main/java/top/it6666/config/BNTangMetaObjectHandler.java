@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
  * @since 2022-12-29
  **/
 @Component
-public class MyMetaObjectHandler implements MetaObjectHandler {
+public class BNTangMetaObjectHandler implements MetaObjectHandler {
     @Override
     public void insertFill(MetaObject metaObject) {
         this.strictInsertFill(metaObject, "createTime", LocalDateTime::now, LocalDateTime.class);

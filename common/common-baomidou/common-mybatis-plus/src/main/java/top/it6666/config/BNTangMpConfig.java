@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
  * @since 2022-15-20
  **/
 @Configuration
-public class MpConfig {
+public class BNTangMpConfig {
     @Bean
     public MybatisPlusPropertiesCustomizer mybatisPlusPropertiesCustomizer() {
         // 序列化枚举值为数据库存储值

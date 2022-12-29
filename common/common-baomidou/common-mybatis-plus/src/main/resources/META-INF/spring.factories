@@ -1,3 +1,6 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   top.it6666.config.BNTangMpConfig,\
   top.it6666.config.BNTangMetaObjectHandler
+
+org.springframework.boot.env.EnvironmentPostProcessor=\
+  top.it6666.config.BNTangSafetyEncryptProcessor

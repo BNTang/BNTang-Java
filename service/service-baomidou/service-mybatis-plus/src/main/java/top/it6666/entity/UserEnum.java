@@ -1,5 +1,6 @@
 package top.it6666.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -10,6 +11,7 @@ import top.it6666.enums.AgeEnum;
 import top.it6666.enums.GradeEnum;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -54,4 +56,9 @@ public class UserEnum implements Serializable {
     @TableField("grade")
 //    @JSONField(serialzeFeatures= SerializerFeature.WriteEnumUsingToString)
     private GradeEnum grade;
+
+    @TableField(value = "create_time", fill = FieldFill.INSERT)
+    private LocalDateTime createTime;
+    @TableField(value = "update_time", fill = FieldFill.UPDATE)
+    private LocalDateTime updateTime;
 }

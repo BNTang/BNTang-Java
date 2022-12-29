@@ -1,2 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  top.it6666.config.MpConfig
+  top.it6666.config.MpConfig,\
+  top.it6666.config.MyMetaObjectHandler

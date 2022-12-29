@@ -33,6 +33,8 @@ spring:
 #    url: jdbc:mysql://localhost:3306/mybatisplus?useUnicode=true&useSSL=false&characterEncoding=utf8
 #    username: root
 #    password: root
+  #driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+  #url: jdbc:p6spy:mysql://localhost:3310/mybatisplus?useUnicode=true&useSSL=false&characterEncoding=utf8
   # mvc
   mvc:
     pathmatch:

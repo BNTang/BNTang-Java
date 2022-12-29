@@ -12,6 +12,7 @@ import top.it6666.service.IUserEnumService;
 import top.it6666.service.IUserService;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -47,5 +48,15 @@ public class UserController {
     @ApiOperation("获取所有UserEnum")
     ResultBody<List<UserEnum>> getUserEnumList() {
         return ResultBody.result(this.iUserEnumService.getUserEnumList());
+    }
+
+    @GetMapping("/testServicePaging/{page}/{pageSize}")
+    public ResultBody<List<Map<String, Object>>> testPaging(@PathVariable Integer page, @PathVariable Integer pageSize) {
+        return ResultBody.result(this.iUserEnumService.testPaging(page, pageSize));
+    }
+
+    @GetMapping("/testMapperPaging/{page}/{pageSize}")
+    public ResultBody<List<UserEnum>> testMapperPaging(@PathVariable Integer page, @PathVariable Integer pageSize) {
+        return ResultBody.result(this.iUserEnumService.testMapperPaging(page, pageSize));
     }
 }

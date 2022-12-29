@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import top.it6666.entity.UserEnum;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -18,4 +19,8 @@ public interface IUserEnumService extends IService<UserEnum> {
     void testUserEnum(UserEnum userEnum);
 
     List<UserEnum> getUserEnumList();
+
+    List<Map<String, Object>> testPaging(Integer page, Integer pageSize);
+
+    List<UserEnum> testMapperPaging(Integer page, Integer pageSize);
 }

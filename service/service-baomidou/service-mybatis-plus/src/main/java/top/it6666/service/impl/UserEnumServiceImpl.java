@@ -2,6 +2,8 @@ package top.it6666.service.impl;
 
 import cn.hutool.core.collection.CollUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import top.it6666.entity.UserEnum;
@@ -12,6 +14,7 @@ import top.it6666.utils.DBResultUtil;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -53,5 +56,20 @@ public class UserEnumServiceImpl extends ServiceImpl<UserEnumMapper, UserEnum>
     public List<UserEnum> getUserEnumList() {
         QueryWrapper<UserEnum> queryWrapper = new QueryWrapper<>();
         return list(queryWrapper);
+    }
+
+    @Override
+    public List<Map<String, Object>> testPaging(Integer page, Integer pageSize) {
+        Page<Map<String, Object>> pageObj = new Page<>(page, pageSize);
+        IPage<Map<String, Object>> result = pageMaps(pageObj, null);
+
+        return result.getRecords();
+    }
+
+    @Override
+    public List<UserEnum> testMapperPaging(Integer page, Integer pageSize) {
+        Page<UserEnum> objectPage = new Page<>(page, pageSize);
+        Page<UserEnum> userEnumPage = this.userEnumMapper.selectPage(objectPage, null);
+        return userEnumPage.getRecords();
     }
 }

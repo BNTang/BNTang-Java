@@ -3,7 +3,6 @@ package top.it6666.config;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.baomidou.mybatisplus.annotation.DbType;
-import com.baomidou.mybatisplus.autoconfigure.ConfigurationCustomizer;
 import com.baomidou.mybatisplus.autoconfigure.MybatisPlusPropertiesCustomizer;
 import com.baomidou.mybatisplus.core.MybatisConfiguration;
 import com.baomidou.mybatisplus.core.config.GlobalConfig;
@@ -30,7 +29,8 @@ public class BNTangMpConfig {
 
         return properties -> {
             GlobalConfig globalConfig = properties.getGlobalConfig();
-            globalConfig.setBanner(false);
+            globalConfig.setBanner(Boolean.FALSE);
+            globalConfig.setDbConfig(this.dbConfig());
 
             MybatisConfiguration configuration = new MybatisConfiguration();
             configuration.setDefaultEnumTypeHandler(MybatisEnumTypeHandler.class);
@@ -57,5 +57,13 @@ public class BNTangMpConfig {
         MybatisPlusInterceptor mybatisPlusInterceptor = new MybatisPlusInterceptor();
         mybatisPlusInterceptor.setInterceptors(Collections.singletonList(paginationInnerInterceptor()));
         return mybatisPlusInterceptor;
+    }
+
+    private GlobalConfig.DbConfig dbConfig(){
+        GlobalConfig.DbConfig dbConfig = new GlobalConfig.DbConfig();
+        dbConfig.setLogicDeleteField("deleted");
+        dbConfig.setLogicDeleteValue("1");
+        dbConfig.setLogicNotDeleteValue("0");
+        return new GlobalConfig.DbConfig();
     }
 }

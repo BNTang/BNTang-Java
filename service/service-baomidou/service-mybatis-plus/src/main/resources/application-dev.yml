@@ -12,6 +12,9 @@ swagger2:
 
 # ============================ Spring =========================================
 spring:
+  autoconfigure:
+    # 排除 mp 的多数据源自动装配
+    exclude: com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration
   #  datasource:
   #    driver-class-name: org.h2.Driver
   #    url: jdbc:h2:mem:test
@@ -50,7 +53,6 @@ spring:
         instance:
           service-base-url: http://127.0.0.1:40001
   # ============================ Spring Boot Admin ============================
-
 management:
   endpoints:
     web:

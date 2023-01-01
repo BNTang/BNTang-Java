@@ -51,12 +51,12 @@ public class UserController {
     }
 
     @GetMapping("/testServicePaging/{page}/{pageSize}")
-    public ResultBody<List<Map<String, Object>>> testPaging(@PathVariable Integer page, @PathVariable Integer pageSize) {
+    ResultBody<List<Map<String, Object>>> testPaging(@PathVariable Integer page, @PathVariable Integer pageSize) {
         return ResultBody.result(this.iUserEnumService.testPaging(page, pageSize));
     }
 
     @GetMapping("/testMapperPaging/{page}/{pageSize}")
-    public ResultBody<List<UserEnum>> testMapperPaging(@PathVariable Integer page, @PathVariable Integer pageSize) {
+    ResultBody<List<UserEnum>> testMapperPaging(@PathVariable Integer page, @PathVariable Integer pageSize) {
         return ResultBody.result(this.iUserEnumService.testMapperPaging(page, pageSize));
     }
 }

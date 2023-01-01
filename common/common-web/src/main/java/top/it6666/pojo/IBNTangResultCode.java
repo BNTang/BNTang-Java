@@ -1,6 +1,6 @@
 package top.it6666.pojo;
 
-public interface IResultCode {
+public interface IBNTangResultCode {
     Integer getCode();
     String getMessage();
 }

@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum ResultCode implements IResultCode{
+public enum BNTangResultCode implements IBNTangResultCode {
     SUCCESS(200, "响应成功"),
     CANNOT_FIND_USER(210001, "找不到指定的用户"),
     USER_HAS_NO_RIGHT(210002, "用户没有权限"),

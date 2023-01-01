@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import top.it6666.entity.User;
 import top.it6666.entity.UserEnum;
-import top.it6666.pojo.ResultBody;
+import top.it6666.pojo.BNTangResultBody;
 import top.it6666.service.IUserEnumService;
 import top.it6666.service.IUserService;
 
@@ -32,31 +32,31 @@ public class UserController {
 
     @PostMapping("/testSaveUpdate")
     @ApiOperation("保存或更新")
-    ResultBody<Void> testSaveUpdate(@RequestBody User user) {
+    BNTangResultBody<Void> testSaveUpdate(@RequestBody User user) {
         this.userService.saveUpdate(user);
-        return ResultBody.success();
+        return BNTangResultBody.success();
     }
 
     @PostMapping("/testUserEnum")
     @ApiOperation("删除或更新UserEnum")
-    ResultBody<Void> testUserEnum(@RequestBody UserEnum userEnum) {
+    BNTangResultBody<Void> testUserEnum(@RequestBody UserEnum userEnum) {
         this.iUserEnumService.testUserEnum(userEnum);
-        return ResultBody.success();
+        return BNTangResultBody.success();
     }
 
     @GetMapping("/getUserEnumList")
     @ApiOperation("获取所有UserEnum")
-    ResultBody<List<UserEnum>> getUserEnumList() {
-        return ResultBody.result(this.iUserEnumService.getUserEnumList());
+    BNTangResultBody<List<UserEnum>> getUserEnumList() {
+        return BNTangResultBody.result(this.iUserEnumService.getUserEnumList());
     }
 
     @GetMapping("/testServicePaging/{page}/{pageSize}")
-    ResultBody<List<Map<String, Object>>> testPaging(@PathVariable Integer page, @PathVariable Integer pageSize) {
-        return ResultBody.result(this.iUserEnumService.testPaging(page, pageSize));
+    BNTangResultBody<List<Map<String, Object>>> testPaging(@PathVariable Integer page, @PathVariable Integer pageSize) {
+        return BNTangResultBody.result(this.iUserEnumService.testPaging(page, pageSize));
     }
 
     @GetMapping("/testMapperPaging/{page}/{pageSize}")
-    ResultBody<List<UserEnum>> testMapperPaging(@PathVariable Integer page, @PathVariable Integer pageSize) {
-        return ResultBody.result(this.iUserEnumService.testMapperPaging(page, pageSize));
+    BNTangResultBody<List<UserEnum>> testMapperPaging(@PathVariable Integer page, @PathVariable Integer pageSize) {
+        return BNTangResultBody.result(this.iUserEnumService.testMapperPaging(page, pageSize));
     }
 }

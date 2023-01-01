@@ -11,7 +11,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ResultBody<T> implements Serializable {
+public class BNTangResultBody<T> implements Serializable {
     private static final long serialVersionUID = -1474895769101545073L;
     /**
      * 状态码
@@ -42,64 +42,64 @@ public class ResultBody<T> implements Serializable {
      */
     private String message;
 
-    public ResultBody(int code) {
+    public BNTangResultBody(int code) {
         this.code = code;
     }
 
-    public ResultBody(T body) {
-        this.code = ResultCode.SUCCESS.getCode();
+    public BNTangResultBody(T body) {
+        this.code = BNTangResultCode.SUCCESS.getCode();
         this.data = body;
     }
 
-    public ResultBody(ResultCode resultCode) {
-        this.code = resultCode.getCode();
-        this.message = resultCode.getMessage();
+    public BNTangResultBody(BNTangResultCode BNTangResultCode) {
+        this.code = BNTangResultCode.getCode();
+        this.message = BNTangResultCode.getMessage();
     }
 
-    public static <T> ResultBody<T> success() {
-        ResultBody<T> result = new ResultBody<>();
-        result.setCode(ResultCode.SUCCESS.getCode());
-        result.setMessage(ResultCode.SUCCESS.getMessage());
+    public static <T> BNTangResultBody<T> success() {
+        BNTangResultBody<T> result = new BNTangResultBody<>();
+        result.setCode(BNTangResultCode.SUCCESS.getCode());
+        result.setMessage(BNTangResultCode.SUCCESS.getMessage());
         return result;
     }
 
-    public static <T> ResultBody<T> failed() {
-        return result(ResultCode.SYSTEM_EXECUTION_ERROR.getCode(), ResultCode.SYSTEM_EXECUTION_ERROR.getMessage());
+    public static <T> BNTangResultBody<T> failed() {
+        return result(BNTangResultCode.SYSTEM_EXECUTION_ERROR.getCode(), BNTangResultCode.SYSTEM_EXECUTION_ERROR.getMessage());
     }
 
-    public static <T> ResultBody<T> failed(String msg) {
-        return result(ResultCode.SYSTEM_EXECUTION_ERROR.getCode(), msg);
+    public static <T> BNTangResultBody<T> failed(String msg) {
+        return result(BNTangResultCode.SYSTEM_EXECUTION_ERROR.getCode(), msg);
     }
 
-    public static <T> ResultBody<T> judge(boolean status) {
+    public static <T> BNTangResultBody<T> judge(boolean status) {
         if (status) {
             return success();
         }
         return failed();
     }
 
-    public static <T> ResultBody<T> failed(IResultCode resultCode) {
+    public static <T> BNTangResultBody<T> failed(IBNTangResultCode resultCode) {
         return result(resultCode.getCode(), resultCode.getMessage());
     }
 
-    public static <T> ResultBody<T> failed(IResultCode resultCode, String msg) {
+    public static <T> BNTangResultBody<T> failed(IBNTangResultCode resultCode, String msg) {
         return result(resultCode.getCode(), msg);
     }
 
-    public static boolean isSuccess(ResultBody<?> result) {
-        return ResultCode.SUCCESS.getCode().equals(result.getCode());
+    public static boolean isSuccess(BNTangResultBody<?> result) {
+        return BNTangResultCode.SUCCESS.getCode().equals(result.getCode());
     }
 
-    public static <T> ResultBody<T> result(T date) {
-        ResultBody<T> result = new ResultBody<>();
-        result.setCode(ResultCode.SUCCESS.getCode());
-        result.setMessage(ResultCode.SUCCESS.getMessage());
+    public static <T> BNTangResultBody<T> result(T date) {
+        BNTangResultBody<T> result = new BNTangResultBody<>();
+        result.setCode(BNTangResultCode.SUCCESS.getCode());
+        result.setMessage(BNTangResultCode.SUCCESS.getMessage());
         result.setData(date);
         return result;
     }
 
-    private static <T> ResultBody<T> result(Integer code, String msg) {
-        ResultBody<T> result = new ResultBody<>();
+    private static <T> BNTangResultBody<T> result(Integer code, String msg) {
+        BNTangResultBody<T> result = new BNTangResultBody<>();
         result.setCode(code);
         result.setMessage(msg);
         return result;

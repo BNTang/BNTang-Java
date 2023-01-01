@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.it6666.mapper.DocumentMapper;
 import top.it6666.pojo.Document;
-import top.it6666.pojo.ResultBody;
+import top.it6666.pojo.BNTangResultBody;
 
 /**
  * @author BNTang
@@ -36,10 +36,10 @@ public class BNTangTestUseEeQueryWrapperController {
      * 可直接在对应接口的入参中添加索引名称,可参考下面示例
      */
     @GetMapping("/testIndex")
-    ResultBody<Document> testIndex() {
+    BNTangResultBody<Document> testIndex() {
         LambdaEsQueryWrapper<Document> queryWrapper = EsWrappers.lambdaQuery(Document.class);
         queryWrapper.index("document");
         queryWrapper.eq("title", "it6666");
-        return ResultBody.result(this.documentMapper.selectOne(queryWrapper));
+        return BNTangResultBody.result(this.documentMapper.selectOne(queryWrapper));
     }
 }

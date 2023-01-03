@@ -10,7 +10,7 @@ import org.springframework.web.filter.CorsFilter;
  * @author BNTang
  */
 @Configuration
-public class BNTangGateWayCorsConfigure {
+public class BNTangCorsConfigure {
     @Bean
     public CorsFilter corsFilter() {
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

@@ -20,6 +20,11 @@ CREATE TABLE `t_user`
   COLLATE = utf8_general_ci COMMENT = '用户表'
   ROW_FORMAT = Dynamic;
 
+INSERT INTO `t_user`
+VALUES (1, 'BNTang', '$2a$10$gzhiUb1ldc1Rf3lka4k/WOoFKKGPepHSzJxzcPSN5/65SzkMdc.SK', 1, '303158131@qq.com',
+        '17788888888', '1', '2019-06-14 20:39:22', '2019-07-19 10:18:36', '2019-08-02 15:57:00', '0', 'default.jpg',
+        '我是帅比作者。');
+
 CREATE TABLE `t_role`
 (
     `ROLE_ID`     bigint(20)                                              NOT NULL AUTO_INCREMENT COMMENT '角色ID',
@@ -33,3 +38,6 @@ CREATE TABLE `t_role`
   CHARACTER SET = utf8
   COLLATE = utf8_general_ci COMMENT = '角色表'
   ROW_FORMAT = Dynamic;
+
+INSERT INTO `t_role`
+VALUES (1, '管理员', '管理员', '2019-08-08 16:23:11', '2019-08-09 14:38:59');

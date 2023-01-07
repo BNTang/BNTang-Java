@@ -5,15 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>top.it6666</groupId>
-        <artifactId>service</artifactId>
+        <artifactId>service-dromara</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
-    <artifactId>service-dromara</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>service-easy-es</module>
-        <module>service-sa-token</module>
-        <module>service-hutool</module>
-    </modules>
+    <artifactId>service-hutool</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>top.it6666</groupId>
+            <artifactId>common-hutool</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

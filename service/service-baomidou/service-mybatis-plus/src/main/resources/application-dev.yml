@@ -30,7 +30,7 @@ spring:
           driver-class-name: com.mysql.cj.jdbc.Driver
           url: mpw:Dz3yY/SwRYr+0g2iaqJc/CKMoB3PhaanUYtTFSmiIluVVgCCirOCP0kH8rYk8GzN+m6CgG0CaiwBs6g3EnSIfjOaOUaFUlQQZmmwmf7bz8RIMWCWPKZ1HHXG3I8lNDNq
   autoconfigure:
-    # 排除 mp 的多数据源自动装配
+    # 排除 mp 的数据源自动装配
     exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
     #  datasource:
     #    driver-class-name: org.h2.Driver

@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @since 2022-14-29
  **/
 @SpringBootTest
-class DataSecurityDemo {
+class DataSecurity {
     @Test
     void testPwd() {
         String secretKey = AES.generateRandomKey();
@@ -20,8 +20,8 @@ class DataSecurityDemo {
         String url = AES.encrypt("jdbc:mysql://localhost:3310/mybatisplus?useUnicode=true&useSSL=false&characterEncoding=utf8", secretKey);
         String username = AES.encrypt("root", secretKey);
         String password = AES.encrypt("yangbuyiya", secretKey);
-        System.out.println("url=" +url );
-        System.out.println("username=" +username );
-        System.out.println("password=" +password );
+        System.out.println("url=" + url);
+        System.out.println("username=" + username);
+        System.out.println("password=" + password);
     }
 }

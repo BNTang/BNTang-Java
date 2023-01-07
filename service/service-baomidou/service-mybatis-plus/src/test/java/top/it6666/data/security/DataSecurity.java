@@ -10,15 +10,16 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @since 2022-14-29
  **/
 @SpringBootTest
-class DataSecurity {
+class DataSecurityDemo {
     @Test
     void testPwd() {
         String secretKey = AES.generateRandomKey();
         System.out.println("secretKey:" + secretKey);
 
-        String url = AES.encrypt("jdbc:p6spy:mysql://localhost:3310/mybatisplus?useUnicode=true&useSSL=false&characterEncoding=utf8", secretKey);
+//        String url = AES.encrypt("jdbc:p6spy:mysql://localhost:3310/mybatisplus?useUnicode=true&useSSL=false&characterEncoding=utf8", secretKey);
+        String url = AES.encrypt("jdbc:mysql://localhost:3310/mybatisplus?useUnicode=true&useSSL=false&characterEncoding=utf8", secretKey);
         String username = AES.encrypt("root", secretKey);
-        String password = AES.encrypt("root", secretKey);
+        String password = AES.encrypt("yangbuyiya", secretKey);
         System.out.println("url=" +url );
         System.out.println("username=" +username );
         System.out.println("password=" +password );

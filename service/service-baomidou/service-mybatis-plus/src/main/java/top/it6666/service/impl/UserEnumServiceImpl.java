@@ -68,8 +68,7 @@ public class UserEnumServiceImpl extends ServiceImpl<UserEnumMapper, UserEnum>
 
     @Override
     public List<UserEnum> testMapperPaging(Integer page, Integer pageSize) {
-        Page<UserEnum> objectPage = new Page<>(page, pageSize);
-        this.userEnumMapper.selectPage(objectPage, null);
+        Page<UserEnum> objectPage = this.userEnumMapper.selectPage(new Page<>(page, pageSize), null);
         return objectPage.getRecords();
     }
 }

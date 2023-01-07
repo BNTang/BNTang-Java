@@ -25,13 +25,13 @@ spring:
       primary: base
       datasource:
         base:
-          username: mpw:JlrXmUxeatjH6w+aGkOHzQ==
-          password: mpw:G/6ZyNUKme54Vdlh2Vn1jg==
-          driver-class-name: com.p6spy.engine.spy.P6SpyDriver
-          url: mpw:zLs56woXk1OEKMc0Bf9jWvDOsPE24q/6Vi1NP4/XfQ5niChihv6OyfUp6ZhnAzbe3tIlxozZEuk328ShrA3ZFRMuyWyyPZTcjOEKxbPoUoNoPeA+6/G81o4IEE8BxvP+LZ+v4hr35z2nrJ3gHippUw==
-    #autoconfigure:
+          username: mpw:X8PV6wWPs+M1rTqgZNus6A==
+          password: mpw:sltT9Qzk/GocWaBXqrQVXQ==
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: mpw:Dz3yY/SwRYr+0g2iaqJc/CKMoB3PhaanUYtTFSmiIluVVgCCirOCP0kH8rYk8GzN+m6CgG0CaiwBs6g3EnSIfjOaOUaFUlQQZmmwmf7bz8RIMWCWPKZ1HHXG3I8lNDNq
+  autoconfigure:
     # 排除 mp 的多数据源自动装配
-    #exclude: com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
     #  datasource:
     #    driver-class-name: org.h2.Driver
     #    url: jdbc:h2:mem:test

@@ -17,5 +17,6 @@
         <module>service-dromara</module>
         <module>service-baomidou</module>
         <module>service-codecentric</module>
+        <module>service-test</module>
     </modules>
 </project>

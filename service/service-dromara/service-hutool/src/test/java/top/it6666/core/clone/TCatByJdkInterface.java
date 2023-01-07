@@ -8,14 +8,14 @@ import lombok.SneakyThrows;
  * @description
  * @since 2023-15-07
  **/
-public class TCatByJdk {
+public class TCatByJdkInterface {
     @SneakyThrows
     public static void main(String[] args) {
-        CatByJdk catByJdk = new CatByJdk();
-        System.out.println("catByJdk = " + catByJdk);
-        System.out.println(catByJdk.hashCode());
+        CatByJdkInterface catByJdkInterface = new CatByJdkInterface();
+        System.out.println("catByJdkInterface = " + catByJdkInterface);
+        System.out.println(catByJdkInterface.hashCode());
 
-        CatByJdk clone = (CatByJdk) catByJdk.clone();
+        CatByJdkInterface clone = (CatByJdkInterface) catByJdkInterface.clone();
         clone.setName("BNTang");
         System.out.println("clone = " + clone);
         System.out.println(clone.hashCode());

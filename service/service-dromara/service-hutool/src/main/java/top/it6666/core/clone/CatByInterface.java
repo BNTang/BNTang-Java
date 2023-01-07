@@ -11,7 +11,7 @@ import lombok.Data;
  * @since 2023-15-07
  **/
 @Data
-public class CatByHuTool implements Cloneable<CatByHuTool> {
+public class CatByInterface implements Cloneable<CatByInterface> {
     /**
      * 名字
      */
@@ -22,9 +22,9 @@ public class CatByHuTool implements Cloneable<CatByHuTool> {
     private int age = 2;
 
     @Override
-    public CatByHuTool clone() {
+    public CatByInterface clone() {
         try {
-            return (CatByHuTool) super.clone();
+            return (CatByInterface) super.clone();
         } catch (CloneNotSupportedException e) {
             throw new CloneRuntimeException(e);
         }

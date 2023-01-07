@@ -44,7 +44,37 @@ public class CatByHuTool implements Cloneable<CatByHuTool> {
 但是实现此接口依旧有不方便之处，就是必须自己实现一个public类型的clone()方法，还要调用父类（Object）的clone方法并处理异常。于是 **cn.hutool.clone.CloneSupport** 类产生，这个类帮我们实现了上面的clone方法，因此只要继承此类，不用写任何代码即可使用clone()方法：
 
 ```java
-
+/**
+ * @author BNTang
+ * @version 1.0
+ * @description
+ * @since 2023-16-07
+ **/
+@Getter
+@Setter
+@ToString
+public class DogByInherit extends CloneSupport<DogByInherit> {
+    /**
+     * 名字
+     */
+    private String name = "wangwang";
+    /**
+     * 年龄
+     */
+    private int age = 3;
+}
 ```
 
-当然，使用CloneSupport的前提是你没有继承任何的类，谁让Java不支持多重继承呢（你依旧可以让父类继承这个类，如果可以的话）。如果没办法继承类，那实现cn.hutool.clone.Cloneable**也是不错的主意，因此hutool**提供了这两种方式，任选其一，在便捷和灵活上都提供了支持。
+当然，使用CloneSupport的前提是你没有继承任何的类，谁让Java不支持多重继承呢（你依旧可以让父类继承这个类，如果可以的话）。如果没办法继承类，那实现 **cn.hutool.clone.Cloneable** 也是不错的主意，因此hutool提供了这两种方式，任选其一，在便捷和灵活上都提供了支持。
+
+## 深克隆
+
+我们知道实现Cloneable接口后克隆的对象是浅克隆，要想实现深克隆，请使用：
+
+```java
+ObjectUtil.cloneByStream(obj)
+```
+
+前提是对象必须实现 `Serializable` 接口。
+
+ObjectUtil同样提供一些静态方法：**clone(obj)、cloneIfPossible(obj)** 用于简化克隆调用。

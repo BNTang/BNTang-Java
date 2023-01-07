@@ -6,12 +6,12 @@ import lombok.Setter;
 /**
  * @author BNTang
  * @version 1.0
- * @description
+ * @description 浅克隆！！！
  * @since 2023-15-07
  **/
 @Getter
 @Setter
-public class CatByJdk implements Cloneable {
+public class CatByJdkInterface implements Cloneable {
     /**
      * 名字
      */

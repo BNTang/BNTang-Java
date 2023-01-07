@@ -14,7 +14,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class DogByHuTool extends CloneSupport<DogByHuTool> {
+public class DogByInherit extends CloneSupport<DogByInherit> {
     /**
      * 名字
      */

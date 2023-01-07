@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: devtest
+    active: dev
   application:
     name: Service-MyBatis-Plus
 server:

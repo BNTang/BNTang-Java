@@ -8,6 +8,6 @@ package top.it6666;
  **/
 public class ServiceHuToolApp {
     public static void main(String[] args) {
-
+        
     }
 }

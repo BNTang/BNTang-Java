@@ -8,6 +8,12 @@
         <artifactId>service</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
     <artifactId>service-test</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>top.it6666</groupId>
+            <artifactId>common-lombok</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

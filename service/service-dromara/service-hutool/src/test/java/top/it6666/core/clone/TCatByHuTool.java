@@ -6,7 +6,7 @@ package top.it6666.core.clone;
  * @description
  * @since 2023-15-07
  **/
-public class CatByHuToolTest {
+public class TCatByHuTool {
     public static void main(String[] args) {
         CatByHuTool cat = new CatByHuTool();
         System.out.println("cat = " + cat);

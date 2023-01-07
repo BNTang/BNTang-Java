@@ -8,7 +8,7 @@ import lombok.SneakyThrows;
  * @description
  * @since 2023-15-07
  **/
-public class CatByJdkTest {
+public class TCatByJdk {
     @SneakyThrows
     public static void main(String[] args) {
         CatByJdk catByJdk = new CatByJdk();

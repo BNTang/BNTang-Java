@@ -1,6 +1,7 @@
 package top.it6666.core.clone;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author BNTang
@@ -8,7 +9,8 @@ import lombok.Data;
  * @description
  * @since 2023-15-07
  **/
-@Data
+@Getter
+@Setter
 public class CatByJdk implements Cloneable {
     /**
      * 名字

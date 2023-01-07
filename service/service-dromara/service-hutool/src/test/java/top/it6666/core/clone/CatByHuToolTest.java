@@ -1,4 +1,4 @@
-package top.it6666.core;
+package top.it6666.core.clone;
 
 /**
  * @author BNTang
@@ -6,13 +6,13 @@ package top.it6666.core;
  * @description
  * @since 2023-15-07
  **/
-public class CatTest {
+public class CatByHuToolTest {
     public static void main(String[] args) {
-        Cat cat = new Cat();
+        CatByHuTool cat = new CatByHuTool();
         System.out.println("cat = " + cat);
         System.out.println(cat.hashCode());
 
-        Cat clone = cat.clone();
+        CatByHuTool clone = cat.clone();
         clone.setName("BNTang");
         System.out.println("clone = " + clone);
         System.out.println(clone.hashCode());

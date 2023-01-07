@@ -1,4 +1,4 @@
-package top.it6666.core;
+package top.it6666.core.clone;
 
 import cn.hutool.core.clone.CloneRuntimeException;
 import cn.hutool.core.clone.Cloneable;
@@ -11,7 +11,7 @@ import lombok.Data;
  * @since 2023-15-07
  **/
 @Data
-public class Cat implements Cloneable<Cat> {
+public class CatByHuTool implements Cloneable<CatByHuTool> {
     /**
      * 名字
      */
@@ -22,9 +22,9 @@ public class Cat implements Cloneable<Cat> {
     private int age = 2;
 
     @Override
-    public Cat clone() {
+    public CatByHuTool clone() {
         try {
-            return (Cat) super.clone();
+            return (CatByHuTool) super.clone();
         } catch (CloneNotSupportedException e) {
             throw new CloneRuntimeException(e);
         }

@@ -1,7 +1,5 @@
 package top.it6666.core.clone;
 
-import lombok.Data;
-
 /**
  * @author BNTang
  * @version 1.0

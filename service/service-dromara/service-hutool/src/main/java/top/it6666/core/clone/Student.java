@@ -8,7 +8,6 @@ import lombok.Data;
  * @description
  * @since 2023-15-08
  **/
-@Data
 public class Student {
     private String name;
     private Integer age;

@@ -21,7 +21,11 @@ public class TObjectUtil {
         System.out.println("clone.hashCode() = " + clone.hashCode());
 
         Student student = new Student();
+        System.out.println("student = " + student);
         Student studentClone = ObjectUtil.clone(student);
         System.out.println(studentClone);
+
+        Student cloneStudent = ObjectUtil.cloneIfPossible(student);
+        System.out.println("cloneStudent = " + cloneStudent);
     }
 }

@@ -1,6 +1,7 @@
 package top.it6666.core.convert;
 
 import cn.hutool.core.convert.Convert;
+import cn.hutool.core.lang.TypeReference;
 
 import java.util.Date;
 import java.util.List;
@@ -16,7 +17,10 @@ public class TConvert {
         // paramToString();
         // paramToArray();
         // paramToDate();
-        paramToList();
+        // paramToList();
+        // HalfAngleToFullAngle();
+        // genericityConvert();
+        fullAngleToHalfAngle();
     }
 
     public static void paramToString() {
@@ -62,5 +66,35 @@ public class TConvert {
         Student student = new Student();
         List<?> objects = Convert.toList(student);
         System.out.println(objects);
+    }
+
+    public static void genericityConvert() {
+        Object[] a = {"a", "你", "好", "", 1};
+
+        // result = list = [a, 你, 好, , 1]
+        List<String> list = Convert.convert(new TypeReference<List<String>>() {
+        }, a);
+
+        System.out.println("list = " + list);
+    }
+
+    public static void halfAngleToFullAngle() {
+        String a = "123456789";
+
+        //结果为："１２３４５６７８９"
+        String sbc = Convert.toSBC(a);
+        System.out.println("sbc = " + sbc);
+    }
+
+    public static void fullAngleToHalfAngle() {
+        String a = "１２３４５６７８９";
+
+        //结果为"123456789"
+        String dbc = Convert.toDBC(a);
+        System.out.println("dbc = " + dbc);
+    }
+
+    public static void method(){
+
     }
 }

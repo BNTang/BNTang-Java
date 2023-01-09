@@ -154,6 +154,51 @@ public static void paramToList() {
 
 ## 其它类型转换
 
-- 标准类型
+### 标准类型
 
 通过 `Convert.convert(Class<T>, Object)` 方法可以将任意类型转换为指定类型，Hutool 中预定义了许多类型转换，例如转换为 URI、URL、Calendar 等等, 这些类型的转换都依托于 `ConverterRegistry` 类。通过这个类和 `Converter` 接口，我们可以自定义一些类型转换，详细的使用请参阅 “自定义类型转换” 一节。
+
+### 泛型类型
+
+通过`convert(TypeReference<T> reference, Object value)`方法，自行new一个`TypeReference`对象可以对嵌套泛型进行类型转换。例如，我们想转换一个对象为`List<String>`类型，此时传入的标准Class就无法满足要求，此时我们可以这样：
+
+```java
+Object[] a = { "a", "你", "好", "", 1 };
+List<String> list = Convert.convert(new TypeReference<List<String>>() {}, a);
+```
+
+通过 TypeReference 实例化后制定泛型类型，即可转换对象为我们想要的目标类型。
+
+### 半角和全角转换
+
+在很多文本的统一化中这两个方法非常有用，主要对标点符号的全角半角转换。[全角和半角的区别及使用方式](https://blog.csdn.net/someday1314/article/details/69934312)
+
+- 半角转全角：
+
+```java
+public static void HalfAngleToFullAngle() {
+    String a = "123456789";
+
+    //结果为："１２３４５６７８９"
+    String sbc = Convert.toSBC(a);
+    System.out.println("sbc = " + sbc);
+}
+```
+
+- 全角转半角：
+
+```java
+public static void fullAngleToHalfAngle() {
+    String a = "１２３４５６７８９";
+
+    //结果为"123456789"
+    String dbc = Convert.toDBC(a);
+    System.out.println("dbc = " + dbc);
+}
+```
+
+### 16 进制（Hex）
+
+在很多加密解密，以及中文字符串传输（比如表单提交）的时候，会用到 16 进制转换，就是 Hex 转换，为此Hutool中专门封装了 HexUtil 工具类，考虑到 16 进制转换也是转换的一部分，因此将其方法也放在 Convert 类中，便于理解和查找，使用同样非常简单：
+
+- 转为16进制（Hex）字符串

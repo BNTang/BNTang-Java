@@ -1,6 +1,6 @@
 - 官方文档地址：https://hutool.cn/
 
-# core
+# 克隆
 
 - 支持泛型的克隆接口和克隆类
 
@@ -79,7 +79,7 @@ ObjectUtil.cloneByStream(obj)
 
 ObjectUtil同样提供一些静态方法：**clone(obj)、cloneIfPossible(obj)** 用于简化克隆调用。
 
-# Convert
+# 类型转换
 
 - 痛点
 
@@ -92,3 +92,68 @@ ObjectUtil同样提供一些静态方法：**clone(obj)、cloneIfPossible(obj)**
 ## Java 常见类型转换
 
 - 转换为字符串：
+
+```java
+public static void paramToString() {
+    int a = 1;
+    // aStr为"1"
+    String aStr = Convert.toStr(a);
+    System.out.println("aStr = " + aStr);
+
+    long[] b = {1, 2, 3, 4, 5};
+    // bStr为："[1, 2, 3, 4, 5]"
+    String bStr = Convert.toStr(b);
+    System.out.println("b = " + b);
+    System.out.println("bStr = " + bStr);
+}
+```
+
+- 转换为指定类型数组：
+
+```java
+public static void paramToArray() {
+    String[] b = {"1", "2", "3", "4"};
+    //结果为Integer数组
+    Integer[] intArray = Convert.toIntArray(b);
+    System.out.println("intArray = " + intArray);
+
+    long[] c = {1, 2, 3, 4, 5};
+    //结果为Integer数组
+    Integer[] intArray2 = Convert.toIntArray(c);
+    System.out.println("intArray2 = " + intArray2);
+}
+```
+
+- 转换为日期对象：
+
+```java
+public static void paramToDate() {
+    String a = "2017-05-06";
+    Date value = Convert.toDate(a);
+    System.out.println("value = " + value);
+}
+```
+
+- 转换为集合：
+
+```java
+public static void paramToList() {
+    Object[] a = {"a", "你", "好", "", 1};
+    List<?> list = Convert.convert(List.class, a);
+    System.out.println("list = " + list);
+
+    //从4.1.11开始可以这么用
+    List<?> list2 = Convert.toList(a);
+    System.out.println("list2 = " + list2);
+
+    Student student = new Student();
+    List<?> objects = Convert.toList(student);
+    System.out.println(objects);
+}
+```
+
+## 其它类型转换
+
+- 标准类型
+
+通过 `Convert.convert(Class<T>, Object)` 方法可以将任意类型转换为指定类型，Hutool 中预定义了许多类型转换，例如转换为 URI、URL、Calendar 等等, 这些类型的转换都依托于 `ConverterRegistry` 类。通过这个类和 `Converter` 接口，我们可以自定义一些类型转换，详细的使用请参阅 “自定义类型转换” 一节。

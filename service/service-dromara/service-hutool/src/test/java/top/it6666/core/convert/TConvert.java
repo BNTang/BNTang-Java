@@ -2,6 +2,9 @@ package top.it6666.core.convert;
 
 import cn.hutool.core.convert.Convert;
 
+import java.util.Date;
+import java.util.List;
+
 /**
  * @author BNTang
  * @version 1.0
@@ -10,7 +13,10 @@ import cn.hutool.core.convert.Convert;
  **/
 public class TConvert {
     public static void main(String[] args) {
-        paramToString();
+        // paramToString();
+        // paramToArray();
+        // paramToDate();
+        paramToList();
     }
 
     public static void paramToString() {
@@ -24,5 +30,37 @@ public class TConvert {
         String bStr = Convert.toStr(b);
         System.out.println("b = " + b);
         System.out.println("bStr = " + bStr);
+    }
+
+    public static void paramToArray() {
+        String[] b = {"1", "2", "3", "4"};
+        //结果为Integer数组
+        Integer[] intArray = Convert.toIntArray(b);
+        System.out.println("intArray = " + intArray);
+
+        long[] c = {1, 2, 3, 4, 5};
+        //结果为Integer数组
+        Integer[] intArray2 = Convert.toIntArray(c);
+        System.out.println("intArray2 = " + intArray2);
+    }
+
+    public static void paramToDate() {
+        String a = "2017-05-06";
+        Date value = Convert.toDate(a);
+        System.out.println("value = " + value);
+    }
+
+    public static void paramToList() {
+        Object[] a = {"a", "你", "好", "", 1};
+        List<?> list = Convert.convert(List.class, a);
+        System.out.println("list = " + list);
+
+        //从4.1.11开始可以这么用
+        List<?> list2 = Convert.toList(a);
+        System.out.println("list2 = " + list2);
+
+        Student student = new Student();
+        List<?> objects = Convert.toList(student);
+        System.out.println(objects);
     }
 }

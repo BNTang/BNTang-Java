@@ -2,7 +2,7 @@
 
 # core
 
-## 支持泛型的克隆接口和克隆类
+- 支持泛型的克隆接口和克隆类
 
 > 空接口
 
@@ -78,3 +78,17 @@ ObjectUtil.cloneByStream(obj)
 前提是对象必须实现 `Serializable` 接口。
 
 ObjectUtil同样提供一些静态方法：**clone(obj)、cloneIfPossible(obj)** 用于简化克隆调用。
+
+# Convert
+
+- 痛点
+
+在Java开发中我们要面对各种各样的类型转换问题，尤其是从命令行获取的用户参数、从HttpRequest获取的Parameter等等，这些参数类型多种多样，我们怎么去转换他们呢？常用的办法是先整成String，然后调用XXX.parseXXX方法，还要承受转换失败的风险，不得不加一层try catch，这个小小的过程混迹在业务代码中会显得非常难看和臃肿。
+
+## Convert 类
+
+**Convert** 类可以说是一个工具方法类，里面封装了针对Java常见类型的转换，用于简化类型转换。**Convert** 类中大部分方法为 toXXX，参数为Object，可以实现将任意可能的类型转换为指定类型。同时支持第二个参数 **defaultValue** 用于在转换失败时返回一个默认值。
+
+## Java 常见类型转换
+
+- 转换为字符串：

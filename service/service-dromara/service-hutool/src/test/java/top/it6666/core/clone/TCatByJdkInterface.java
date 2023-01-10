@@ -5,7 +5,7 @@ import lombok.SneakyThrows;
 /**
  * @author BNTang
  * @version 1.0
- * @description
+ * @description 测试 JDK 自带克隆接口，浅克隆！！！
  * @since 2023-15-07
  **/
 public class TCatByJdkInterface {

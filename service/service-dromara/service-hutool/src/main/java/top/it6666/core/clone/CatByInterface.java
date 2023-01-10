@@ -7,7 +7,7 @@ import lombok.Data;
 /**
  * @author BNTang
  * @version 1.0
- * @description
+ * @description 泛型克隆接口
  * @since 2023-15-07
  **/
 @Data

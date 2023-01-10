@@ -340,3 +340,13 @@ public static void digitalConvertChinese() {
     System.out.println("f2 = " + f2);
 }
 ```
+
+- 数字中文表示转换为数字
+
+```java
+public static void chineseNumberToNumber() {
+    // 1012
+    int f1 = Convert.chineseToNumber("一千零一十二");
+    System.out.println("f1 = " + f1);
+}
+```

@@ -8,7 +8,7 @@ import lombok.ToString;
 /**
  * @author BNTang
  * @version 1.0
- * @description
+ * @description 泛型克隆类
  * @since 2023-16-07
  **/
 @Getter

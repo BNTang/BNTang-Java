@@ -5,7 +5,7 @@ import cn.hutool.core.util.ObjectUtil;
 /**
  * @author BNTang
  * @version 1.0
- * @description
+ * @description 测试 HuTool ObjectUtil
  * @since 2023-15-08
  **/
 public class TObjectUtil {

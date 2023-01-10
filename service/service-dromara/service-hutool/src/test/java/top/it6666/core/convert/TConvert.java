@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author BNTang
  * @version 1.0
- * @description
+ * @description 测试类型转换
  * @since 2023-23-08
  **/
 public class TConvert {

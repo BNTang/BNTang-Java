@@ -3,7 +3,7 @@ package top.it6666.core.clone;
 /**
  * @author BNTang
  * @version 1.0
- * @description
+ * @description 测试 HuTool 泛型克隆接口
  * @since 2023-15-07
  **/
 public class TCatByInterface {

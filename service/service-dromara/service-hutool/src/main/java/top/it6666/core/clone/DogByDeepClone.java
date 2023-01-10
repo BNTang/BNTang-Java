@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * @author BNTang
  * @version 1.0
- * @description
+ * @description HuTool 深克隆
  * @since 2023-18-07
  **/
 @ToString

@@ -3,7 +3,7 @@ package top.it6666.core.clone;
 /**
  * @author BNTang
  * @version 1.0
- * @description
+ * @description 测试 泛型克隆类
  * @since 2023-16-07
  **/
 public class TDogByInherit {

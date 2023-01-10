@@ -197,8 +197,146 @@ public static void fullAngleToHalfAngle() {
 }
 ```
 
-### 16 进制（Hex）
+### （Hex） 16 进制
 
 在很多加密解密，以及中文字符串传输（比如表单提交）的时候，会用到 16 进制转换，就是 Hex 转换，为此Hutool中专门封装了 HexUtil 工具类，考虑到 16 进制转换也是转换的一部分，因此将其方法也放在 Convert 类中，便于理解和查找，使用同样非常简单：
 
 - 转为16进制（Hex）字符串
+
+```java
+public static void convertToSixTeenBase() {
+    String a = "我是一个小小的可爱的字符串";
+
+    //结果："e68891e698afe4b880e4b8aae5b08fe5b08fe79a84e58fafe788b1e79a84e5ad97e7aca6e4b8b2"
+    String hex = Convert.toHex(a, CharsetUtil.CHARSET_UTF_8);
+    System.out.println("hex = " + hex);
+}
+```
+
+- 将16进制（Hex）字符串转为普通字符串:
+
+```java
+public static void convertSixTeenBaseToString() {
+    String hex = "e68891e698afe4b880e4b8aae5b08fe5b08fe79a84e58fafe788b1e79a84e5ad97e7aca6e4b8b2";
+
+    //结果为："我是一个小小的可爱的字符串"
+    //String raw = Convert.hexStrToStr(hex, CharsetUtil.CHARSET_UTF_8);
+
+    //注意：在4.1.11之后hexStrToStr将改名为hexToStr
+    String raw2 = Convert.hexToStr(hex, CharsetUtil.CHARSET_UTF_8);
+    System.out.println("raw2 = " + raw2);
+}
+```
+
+> 因为字符串牵涉到编码问题，因此必须传入编码对象，此处使用UTF-8编码。 **toHex** 方法同样支持传入 byte[]，同样也可以使用 **hexToBytes** 方法将16进制转为byte[]
+
+### Unicode 和字符串转换
+
+与16进制类似，Convert类同样可以在字符串和Unicode之间轻松转换：
+
+```java
+public static void unicodeAndStringConvert() {
+    String a = "我是一个小小的可爱的字符串";
+
+    //结果为："\\u6211\\u662f\\u4e00\\u4e2a\\u5c0f\\u5c0f\\u7684\\u53ef\\u7231\\u7684\\u5b57\\u7b26\\u4e32"
+    String unicode = Convert.strToUnicode(a);
+    System.out.println("unicode = " + unicode);
+
+    //结果为："我是一个小小的可爱的字符串"
+    String raw = Convert.unicodeToStr(unicode);
+    System.out.println("raw = " + raw);
+}
+```
+
+很熟悉吧？如果你在properties文件中写过中文，你会明白这个方法的重要性。
+
+### 编码转换
+
+在接收表单的时候，我们常常被中文乱码所困扰，其实大多数原因是使用了不正确的编码方式解码了数据。于是Convert.convertCharset方法便派上用场了，它可以把乱码转为正确的编码方式：
+
+```java
+public static void codingConvert() {
+    String a = "我不是乱码";
+    //转换后result为乱码
+    String result = Convert.convertCharset(a, CharsetUtil.UTF_8, CharsetUtil.ISO_8859_1);
+    String raw = Convert.convertCharset(result, CharsetUtil.ISO_8859_1, "UTF-8");
+    // Assert.assertEquals(raw, a);
+
+    System.out.println("raw.equals(a) = " + raw.equals(a));
+}
+```
+
+!> 注意 经过测试，UTF-8编码后用GBK解码再用GBK编码后用UTF-8解码会存在某些中文转换失败的问题。
+
+### 时间单位转换
+
+`Convert.convertTime`方法主要用于转换时长单位，比如一个很大的毫秒，我想获得这个毫秒数对应多少分：
+
+```java
+public static void timeUnitConvert() {
+    long a = 4535345;
+
+    //结果为：75
+    long minutes = Convert.convertTime(a, TimeUnit.MILLISECONDS, TimeUnit.MINUTES);
+
+    System.out.println("minutes = " + minutes);
+}
+```
+
+### 金额大小写转换
+
+面对财务类需求，Convert.digitToChinese将金钱数转换为大写形式：
+
+```java
+public static void amountCaseConvert() {
+    double a = 67556.32;
+
+    //结果为："陆万柒仟伍佰伍拾陆元叁角贰分"
+    String digitUppercase = Convert.digitToChinese(a);
+
+    System.out.println("digitUppercase = " + digitUppercase);
+}
+```
+
+!> 注意 转换为大写只能精确到`分`（小数点儿后两位），之后的数字会被忽略。
+
+### 数字转换
+
+- 数字转为英文表达
+
+```java
+public static void digitalConvertEnglishExpress() {
+    // ONE HUNDRED AND CENTS TWENTY THREE ONLY
+    String format = Convert.numberToWord(100.23);
+
+    System.out.println("format = " + format);
+}
+```
+
+- 数字简化
+
+```java
+public static void digitalSimplify() {
+    // 1.2k
+    String format = Convert.numberToSimple(1200);
+
+    System.out.println("format = " + format);
+}
+```
+
+- 数字转中文
+
+!> 数字转中文方法中，只保留两位小数
+
+```java
+public static void digitalConvertChinese() {
+    // 一万零八百八十九点七二
+    String f1 = Convert.numberToChinese(10889.72356, false);
+    System.out.println("f1 = " + f1);
+
+    // 使用金额大写
+    // 壹万贰仟陆佰伍拾叁
+    String f2 = Convert.numberToChinese(12653, true);
+    System.out.println("f2 = " + f2);
+}
+```

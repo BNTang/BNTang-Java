@@ -305,25 +305,25 @@ public class TConvert {
     // ========================================= 自定义转换 =========================================
 
     public static void main(String[] args) {
-        // paramToString();
-        // paramToArray();
-        // paramToDate();
-        // paramToList();
-        // HalfAngleToFullAngle();
-        // genericityConvert();
-        // fullAngleToHalfAngle();
-        // convertToSixTeenBase();
-        // convertSixTeenBaseToString();
-        // unicodeAndStringConvert();
-        // codingConvert();
-        // timeUnitConvert();
-        // amountCaseConvert();
-        // digitalConvertEnglishExpress();
-        // digitalSimplify();
-        // digitalConvertChinese();
-        // chineseNumberToNumber();
-        // originalClassPackagingConvert();
-        // customTypeConvert();
+        paramToString();
+        paramToArray();
+        paramToDate();
+        paramToList();
+        genericityConvert();
+        fullAngleToHalfAngle();
+        convertToSixTeenBase();
+        convertSixTeenBaseToString();
+        unicodeAndStringConvert();
+        codingConvert();
+        timeUnitConvert();
+        amountCaseConvert();
+        digitalConvertEnglishExpress();
+        digitalSimplify();
+        digitalConvertChinese();
+        chineseNumberToNumber();
+        originalClassPackagingConvert();
+        customTypeConvert();
         execConvert();
+        halfAngleToFullAngle();
     }
 }

@@ -447,3 +447,130 @@ public static void execConvert() {
 ### ConverterRegistry 单例和对象模式
 
 ConverterRegistry提供一个静态方法getInstance()返回全局单例对象，这也是推荐的使用方式，当然如果想在某个限定范围内自定义转换，可以实例化ConverterRegistry对象。
+
+# 日期时间
+
+> 介绍
+
+日期时间包是Hutool的核心包之一，提供针对JDK中Date和Calendar对象的封装，封装对象如下：
+
+>  日期时间工具
+
+- `DateUtil` 针对日期时间操作提供一系列静态方法
+- `DateTime` 提供类似于Joda-Time中日期时间对象的封装，继承自Date类，并提供更加丰富的对象方法。
+- `FastDateFormat` 提供线程安全的针对Date对象的格式化和日期字符串解析支持。此对象在实际使用中并不需要感知，相关操作已经封装在`DateUtil`和`DateTime`的相关方法中。
+- `DateBetween` 计算两个时间间隔的类，除了通过构造新对象使用外，相关操作也已封装在`DateUtil`和`DateTime`的相关方法中。
+- `TimeInterval` 一个简单的计时器类，常用于计算某段代码的执行时间，提供包括毫秒、秒、分、时、天、周等各种单位的花费时长计算，对象的静态构造已封装在`DateUtil`中。
+- `DatePattern` 提供常用的日期格式化模式，包括`String`类型和`FastDateFormat`两种类型。
+
+> 日期枚举
+
+考虑到`Calendar`类中表示时间的字段（field）都是使用`int`表示，在使用中非常不便，因此针对这些`int`字段，封装了与之对应的Enum枚举类，这些枚举类在`DateUtil`和`DateTime`相关方法中做为参数使用，可以更大限度的缩小参数限定范围。
+
+这些定义的枚举值可以通过`getValue()`方法获得其与`Calendar`类对应的int值，通过`of(int)`方法从`Calendar`中int值转为枚举对象。
+
+与`Calendar`对应的这些枚举包括：
+
+- `Month` 表示月份，与Calendar中的int值一一对应。
+- `Week` 表示周，与Calendar中的int值一一对应
+
+> 月份枚举
+
+通过月份枚举可以获得某个月的最后一天
+
+```java
+public static void dateTimeMonthEnum() {
+    // 31
+    int lastDay = Month.of(Calendar.JANUARY).getLastDay(false);
+    System.out.println("lastDay = " + lastDay);
+}
+```
+
+另外，Hutool还定义了季度枚举。Season.SPRING为第一季度，表示1~3月。季度的概念并不等同于季节，因为季节与月份并不对应，季度常用于统计概念。
+
+> 时间枚举
+
+时间枚举`DateUnit`主要表示某个时间单位对应的毫秒数，常用于计算时间差。
+
+例如：`DateUnit.MINUTE`表示分，也表示一分钟的毫米数，可以通过调用其`getMillis()`方法获得其毫秒数。
+
+## DateUtil
+
+> 由来
+
+考虑到Java本身对日期时间的支持有限，并且Date和Calendar对象的并存导致各种方法使用混乱和复杂，故使用此工具类做了封装。这其中的封装主要是日期和字符串之间的转换，以及提供对日期的定位（一个月前等等）。
+
+对于Date对象，为了便捷，使用了一个DateTime类来代替，继承自Date对象，主要的便利在于，覆盖了toString()方法，返回yyyy-MM-dd HH:mm:ss形式的字符串，方便在输出时的调用（例如日志记录等），提供了众多便捷的方法对日期对象操作，关于DateTime会在相关章节介绍。
+
+> 方法
+
+- 转换
+
+Date、long、Calendar之间的相互转换: 
+
+```java
+public static void dateLongCalendarConvert() {
+    //当前时间
+    Date date = DateUtil.date();
+    System.out.println("date = " + date);
+
+    //当前时间
+    Date date2 = DateUtil.date(Calendar.getInstance());
+    System.out.println("date2 = " + date2);
+
+    //当前时间
+    Date date3 = DateUtil.date(System.currentTimeMillis());
+    System.out.println("date3 = " + date3);
+
+    //当前时间字符串，格式：yyyy-MM-dd HH:mm:ss
+    String now = DateUtil.now();
+    System.out.println("now = " + now);
+
+    //当前日期字符串，格式：yyyy-MM-dd
+    String today = DateUtil.today();
+    System.out.println("today = " + today);
+}
+```
+
+- 字符串转日期
+
+`DateUtil.parse`方法会自动识别一些常用格式，包括：
+
+- yyyy-MM-dd HH:mm:ss
+- yyyy/MM/dd HH:mm:ss
+- yyyy.MM.dd HH:mm:ss
+- yyyy年MM月dd日 HH时mm分ss秒
+- yyyy-MM-dd
+- yyyy/MM/dd
+- yyyy.MM.dd
+- HH:mm:ss
+- HH时mm分ss秒
+- yyyy-MM-dd HH:mm
+- yyyy-MM-dd HH:mm:ss.SSS
+- yyyyMMddHHmmss
+- yyyyMMddHHmmssSSS
+- yyyyMMdd
+- EEE, dd MMM yyyy HH:mm:ss z
+- EEE MMM dd HH:mm:ss zzz yyyy
+- yyyy-MM-dd'T'HH:mm:ss'Z'
+- yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
+- yyyy-MM-dd'T'HH:mm:ssZ
+- yyyy-MM-dd'T'HH:mm:ss.SSSZ
+
+```java
+public static void stringConvertDate(){
+    String dateStr = "2017-03-01";
+    Date date = DateUtil.parse(dateStr);
+    System.out.println("date = " + date);
+}
+```
+
+我们也可以使用自定义日期格式转化：
+
+```java
+public static void customDateFormatStringToDate() {
+    String dateStr = "2017-03-01";
+    Date date = DateUtil.parse(dateStr, "yyyy-MM-dd");
+    System.out.println("date = " + date);
+}
+```

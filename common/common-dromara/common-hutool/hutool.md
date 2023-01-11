@@ -731,10 +731,43 @@ public static void constellationAndChineseZodiac() {
     String zodiac = DateUtil.getZodiac(Month.MAY.getValue(), 25);
     System.out.println("zodiac = " + zodiac);
 
-    // "狗"
+    // "蛇"
     String chineseZodiac = DateUtil.getChineseZodiac(2001);
     System.out.println("chineseZodiac = " + chineseZodiac);
 }
 ```
 
 - 其它
+
+```java
+public static void other() {
+    // 年龄
+    System.out.println("DateUtil.ageOfNow(\"2001-05-25\") = " + DateUtil.ageOfNow("2001-05-25"));
+
+    // 是否闰年
+    System.out.println("DateUtil.isLeapYear(2023) = " + DateUtil.isLeapYear(2023));
+}
+```
+
+## DateTime
+
+> 由来
+
+考虑工具类的局限性，在某些情况下使用并不简便，于是`DateTime`类诞生。`DateTime`对象充分吸取Joda-Time库的优点，并提供更多的便捷方法，这样我们在开发时不必再单独导入Joda-Time库便可以享受简单快速的日期时间处理过程。
+
+> 说明
+
+**DateTime**类继承于java.util.Date类，为Date类扩展了众多简便方法，这些方法多是`DateUtil`静态方法的对象表现形式，使用DateTime对象可以完全替代开发中Date对象的使用。
+
+> 使用
+
+- 新建对象
+
+`DateTime`对象包含众多的构造方法，构造方法支持的参数有：
+
+- Date
+- Calendar
+- String(日期字符串，第二个参数是日期格式)
+- long 毫秒数
+
+构建对象有两种方式：`DateTime.of()`和`new DateTime()`：

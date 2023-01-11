@@ -197,7 +197,7 @@ public class THuToolDateUtil {
         String zodiac = DateUtil.getZodiac(Month.MAY.getValue(), 25);
         System.out.println("zodiac = " + zodiac);
 
-        // "狗"
+        // "蛇"
         String chineseZodiac = DateUtil.getChineseZodiac(2001);
         System.out.println("chineseZodiac = " + chineseZodiac);
     }

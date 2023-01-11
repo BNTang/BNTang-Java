@@ -1,6 +1,8 @@
 package top.it6666.core.convert;
 
 import cn.hutool.core.convert.Convert;
+import cn.hutool.core.convert.Converter;
+import cn.hutool.core.convert.ConverterRegistry;
 import cn.hutool.core.lang.TypeReference;
 import cn.hutool.core.util.CharsetUtil;
 
@@ -15,26 +17,6 @@ import java.util.concurrent.TimeUnit;
  * @since 2023-23-08
  **/
 public class TConvert {
-    public static void main(String[] args) {
-        // paramToString();
-        // paramToArray();
-        // paramToDate();
-        // paramToList();
-        // HalfAngleToFullAngle();
-        // genericityConvert();
-        // fullAngleToHalfAngle();
-        // convertToSixTeenBase();
-        // convertSixTeenBaseToString();
-        // unicodeAndStringConvert();
-        // codingConvert();
-        // timeUnitConvert();
-        // amountCaseConvert();
-        // digitalConvertEnglishExpress();
-        // digitalSimplify();
-        // digitalConvertChinese();
-        chineseNumberToNumber();
-    }
-
     /**
      * 转换为字符串
      */
@@ -248,5 +230,100 @@ public class TConvert {
         // 1012
         int f1 = Convert.chineseToNumber("一千零一十二");
         System.out.println("f1 = " + f1);
+    }
+
+    /**
+     * 原始类和包装类转换
+     */
+    public static void originalClassPackagingConvert() {
+        //去包装
+        Class<?> wrapClass = Integer.class;
+
+        //结果为：int.class
+        Class<?> unWraped = Convert.unWrap(wrapClass);
+        System.out.println("unWraped = " + unWraped);
+
+        //包装
+        Class<?> primitiveClass = long.class;
+        //结果为：Long.class
+        Class<?> wraped = Convert.wrap(primitiveClass);
+        System.out.println("wraped = " + wraped);
+    }
+
+    /**
+     * 自定义类型转换 ConverterRegistry
+     */
+    public static void customTypeConvert() {
+        int a = 3423;
+        ConverterRegistry converterRegistry = ConverterRegistry.getInstance();
+        String result = converterRegistry.convert(String.class, a);
+        // Assert.assertEquals("3423", result);
+
+        System.out.println("\"3423\".equals(result) = " + "3423".equals(result));
+    }
+
+    // ========================================= 自定义转换 =========================================
+    /**
+     * 2.注册转换器
+     */
+    public static ConverterRegistry registeredConverter() {
+        ConverterRegistry converterRegistry = ConverterRegistry.getInstance();
+
+        // 此处做为示例自定义String转换，因为Hutool中已经提供String转换，请尽量不要替换
+        // 替换可能引发关联转换异常（例如覆盖String转换会影响全局）
+        converterRegistry.putCustom(String.class, CustomConverter.class);
+
+        return converterRegistry;
+    }
+
+    /**
+     * 3.执行转换
+     */
+    public static void execConvert() {
+        int a = 454553;
+
+        ConverterRegistry converterRegistry = registeredConverter();
+
+        String result = converterRegistry.convert(String.class, a);
+        // Assert.assertEquals("Custom: 454553", result);
+
+        System.out.println("\"Custom: 454553\".equals(result) = " + "Custom: 454553".equals(result));
+    }
+
+    /**
+     * 1.自定义转换器
+     *
+     * @author BNTang
+     * @date 2023/01/11
+     */
+    public static class CustomConverter implements Converter<String> {
+        @Override
+        public String convert(Object value, String defaultValue) throws IllegalArgumentException {
+            return "Custom: " + value.toString();
+        }
+    }
+    // ========================================= 自定义转换 =========================================
+
+    public static void main(String[] args) {
+        // paramToString();
+        // paramToArray();
+        // paramToDate();
+        // paramToList();
+        // HalfAngleToFullAngle();
+        // genericityConvert();
+        // fullAngleToHalfAngle();
+        // convertToSixTeenBase();
+        // convertSixTeenBaseToString();
+        // unicodeAndStringConvert();
+        // codingConvert();
+        // timeUnitConvert();
+        // amountCaseConvert();
+        // digitalConvertEnglishExpress();
+        // digitalSimplify();
+        // digitalConvertChinese();
+        // chineseNumberToNumber();
+        // originalClassPackagingConvert();
+        // customTypeConvert();
+        execConvert();
     }
 }
